@@ -1,8 +1,14 @@
 # depslib dependency file v1.0
-1575637165 source:e:\cse\1st term\programming\new folder (2)\dots-and-boxes\dots and boxes\main.c
+1575657408 source:e:\cse\1st term\programming\new folder (2)\dots-and-boxes\dots and boxes\main.c
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	"displays.h"
+
+1575658300 e:\cse\1st term\programming\new folder (2)\dots-and-boxes\dots and boxes\displays.h
+
+1575659095 source:e:\cse\1st term\programming\new folder (2)\dots-and-boxes\dots and boxes\displays.c
 	<stdio.h>
 	<stdlib.h>
 	"displays.h"
-
-1575637116 e:\cse\1st term\programming\new folder (2)\dots-and-boxes\dots and boxes\displays.h
 
