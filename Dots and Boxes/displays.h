@@ -1,0 +1,6 @@
+#ifndef DISPLAYS_H_INCLUDED
+#define DISPLAYS_H_INCLUDED
+void MainMenu();
+
+
+#endif // DISPLAYS_H_INCLUDED
