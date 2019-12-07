@@ -21,13 +21,9 @@ void MainMenu(){
            "                                    2. Expert mode.  5x5\n"
            "                                3. Load a game.\n"
            "                                4. Top 10 players.\n"
-<<<<<<< HEAD
            "                                \033[1;31m5. Exit.\n\033[0m"
            "\n\n                                        ");
-=======
-           "                                \033[1;31m5. Exit.\n\033[0m \n"
-           "      ");
->>>>>>> 1fa82b4db3aed4d7a745f4ec86db811a893dcbcc
+           "                                \033[1;31m5. Exit.\n\033[0m \n");
     int choice = 0;
     for (;;){
         printf("                                        ");
