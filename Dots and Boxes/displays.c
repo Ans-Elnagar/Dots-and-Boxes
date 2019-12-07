@@ -23,7 +23,6 @@ void MainMenu(){
            "                                4. Top 10 players.\n"
            "                                \033[1;31m5. Exit.\n\033[0m"
            "\n\n                                        ");
-           "                                \033[1;31m5. Exit.\n\033[0m \n");
     int choice = 0;
     for (;;){
         printf("                                        ");
