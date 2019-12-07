@@ -31,8 +31,20 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="displays.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="displays.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="processing.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="processing.h">
+			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
 		<Extensions>
 			<code_completion />

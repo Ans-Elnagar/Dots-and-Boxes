@@ -9,6 +9,5 @@ int main()
 {
 
     MainMenu();
-
     exit(EXIT_SUCCESS);
 }
