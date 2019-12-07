@@ -12,3 +12,16 @@
 	<stdlib.h>
 	"displays.h"
 
+1575747802 source:c:\users\seifg\desktop\cmd\dots-and-boxes\dots and boxes\main.c
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	"displays.h"
+	"processing.h"
+
+1575747802 c:\users\seifg\desktop\cmd\dots-and-boxes\dots and boxes\displays.h
+
+1575747802 c:\users\seifg\desktop\cmd\dots-and-boxes\dots and boxes\processing.h
+
+1575747802 source:c:\users\seifg\desktop\cmd\dots-and-boxes\dots and boxes\processing.c
+
