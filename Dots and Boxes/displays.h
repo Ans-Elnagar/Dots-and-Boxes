@@ -13,7 +13,7 @@ extern int numOfPlayers;
 extern int gridSize;
 extern int numOfBoxes;
 extern int records[60][4];
-extern bool grid[11][11];
+extern bool grid[11][6];
 extern int playerGrid[11][11];
 extern int boxesGrid[5][5];
 #endif // DISPLAYS_H_INCLUDED

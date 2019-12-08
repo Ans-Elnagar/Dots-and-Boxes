@@ -81,7 +81,6 @@ void ModeMenu(){
                 switch(choice){
                 case 1:
                         numOfPlayers = 1;
-                        GridMenu();
                         /////////
                         break;
                     case 2:
@@ -114,6 +113,7 @@ void GridMenu(){
         }
         for (int j=(i+1)%2; j<=numOfBoxes; j++){
             if (i%2==0){
+                // This part is for dots and horizontal lines
                 dotShape();
                 if (grid[i][j] == true){
                     switch (playerGrid[i][j]){
@@ -134,6 +134,7 @@ void GridMenu(){
                     dotShape();
                 }
             }
+            // This part is for vertical lines and colored cells
             else {
                 if (grid[i][j] == true){
                     switch (playerGrid[i][j]){
@@ -151,7 +152,7 @@ void GridMenu(){
                     eVline();
                 }
                 if (j != numOfBoxes){
-                    switch(boxesGrid[i][j]){
+                    switch(boxesGrid[i/2][j]){
                         case 1:
                             blueB();
                             break;
@@ -176,7 +177,7 @@ void redL(){
 * redB : Background turn red ***
 *******************************/
 void redB(){
-    printf("\033[31m 2 \033[0m");
+    printf("\033[41m 2 \033[0m");
 }
 /****************************************
 * blueL : every text after it is blue ***
@@ -188,7 +189,7 @@ void blueL(){
 * blueB : Background turn blue ***
 *********************************/
 void blueB(){
-    printf("\033[34m 1 \033[0m");
+    printf("\033[44m 1 \033[0m");
 }
 /******************************
 * emptyB : empty background ***
