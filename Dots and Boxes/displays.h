@@ -1,5 +1,12 @@
 #ifndef DISPLAYS_H_INCLUDED
 #define DISPLAYS_H_INCLUDED
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdbool.h>
+#include <time.h>
+#include <string.h>
+#include "types.h"
+#include "processing.h"
 void MainMenu();    void ModeMenu();
 void redL();        void redB();
 void blueL();       void blueB();
@@ -16,4 +23,8 @@ extern int records[60][4];
 extern bool grid[11][6];
 extern int playerGrid[11][11];
 extern int boxesGrid[5][5];
+extern int rounds;
+extern int relines,startTime;
+extern player player1,player2;
+extern char garbage[100];
 #endif // DISPLAYS_H_INCLUDED
