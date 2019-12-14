@@ -14,20 +14,27 @@
 	<stdbool.h>
 	"displays.h"
 
-1575750236 source:c:\users\seifg\desktop\cmd\dots-and-boxes\dots and boxes\main.c
+1576312431 source:c:\users\seifg\desktop\cmd\dots-and-boxes\dots and boxes\main.c
 	<stdio.h>
 	<stdlib.h>
 	<stdbool.h>
 	"displays.h"
 	"processing.h"
 
-1575750236 c:\users\seifg\desktop\cmd\dots-and-boxes\dots and boxes\displays.h
+1576312431 c:\users\seifg\desktop\cmd\dots-and-boxes\dots and boxes\displays.h
 
-1575747802 c:\users\seifg\desktop\cmd\dots-and-boxes\dots and boxes\processing.h
+1576312431 c:\users\seifg\desktop\cmd\dots-and-boxes\dots and boxes\processing.h
 
 1575747802 source:c:\users\seifg\desktop\cmd\dots-and-boxes\dots and boxes\processing.c
 
 1575721196 source:e:\cse\1st term\programming\new folder (2)\dots-and-boxes\dots and boxes\processing.c
 
 1575765194 e:\cse\1st term\programming\new folder (2)\dots-and-boxes\dots and boxes\processing.h
+
+1576314385 source:c:\users\seifg\desktop\cmd\dots-and-boxes\dots and boxes\displays.c
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	<time.h>
+	"displays.h"
 
