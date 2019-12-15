@@ -103,16 +103,25 @@ void ModeMenu(){
 
 }
 void GridMenu(){
-    printf("         ");
+    if (numOfBoxes == 2){
+        printf("                                  ");
+    } else {
+        printf("                           ");
+    }
     for (int i=0; i<gridSize;i++){
         printf("%d ",i+1);
     }
     for (int i=0; i<gridSize; i++){ // checks if i is 2 digits, So not to move rows of the grid
+        if (numOfBoxes == 2){
+            printf("\n                             ");
+        } else {
+            printf("\n                      ");
+        }
         if (i/9){ // Notice i starts of 0
-            printf("\n       %d",i+1);
+            printf("   %d",i+1);
         }
         else{
-            printf("\n        %d",i+1);
+            printf("    %d",i+1);
         }
         for (int j=(i+1)%2; j<=numOfBoxes; j++){
             if (i%2==0){
