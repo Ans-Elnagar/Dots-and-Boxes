@@ -27,4 +27,5 @@ extern int rounds;
 extern int relines,startTime;
 extern player player1,player2;
 extern char garbage[100];
+extern int avInd[60][2];
 #endif // DISPLAYS_H_INCLUDED
