@@ -67,11 +67,23 @@
 
 1576500301 e:\cse\1st term\programming\new folder (2)\dots-and-boxes\dots and boxes\types.h
 
+<<<<<<< HEAD
 1576471688 D
 
 1576502388 source:d:\new project\dots-and-boxes\dots and boxes\displays.c
 
 1576503429 ef0d5945ae847c52617bf8e8fd80ee8aad10c
+=======
+<<<<<<< HEAD
+1576503919 source:d:\new project\dots-and-boxes\dots and boxes\displays.c
+=======
+<<<<<<< HEAD
+1576498426 source:d:\new project\dots-and-boxes\dots and boxes\displays.c
+=======
+1576502388 source:d:\new project\dots-and-boxes\dots and boxes\displays.c
+>>>>>>> 548ef0d5945ae847c52617bf8e8fd80ee8aad10c
+>>>>>>> af6a9600ea7c0c4e96e628fef979fa97d3ecccb6
+>>>>>>> ab9d4df70e52ccd6d5882902c87a3e8f4c8f7493
 	"displays.h"
 	"processing.h"
 
