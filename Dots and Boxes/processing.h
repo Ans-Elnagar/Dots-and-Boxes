@@ -8,9 +8,13 @@
 #include "types.h"
 #include "displays.h"
 void makeChanges(int i, int j);
+void unMakeChanges();
+int save(int n);
+void redoChanges();
 void computerMoves();
 extern int numOfPlayers;
 extern int gridSize;
+extern int overtime;
 extern int top; // the last index of redo array.
 extern int records[60][4];
 extern bool grid[11][6];

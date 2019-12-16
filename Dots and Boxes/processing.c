@@ -22,13 +22,13 @@ void makeChanges(int i, int j){
             playerGrid[i][j/2] = 2;
         }
     }
-    checkBoxes(i,j);
     if (rounds%2 == player1.turn){
         player1.moves++;
     }
     else {
         player2.moves++;
     }
+    checkBoxes(i,j);
     relines--;
     rounds++;
     if (numOfPlayers == 1)
@@ -37,6 +37,110 @@ void makeChanges(int i, int j){
     }else {
         uiplayer();
     }
+}
+int save(int n){
+    switch (n){
+        case 1:
+            FILE *game = fopen("savedGames/Game1.txt","r");
+            break;
+        case 2:
+            FILE *game = fopen("savedGames/Game2.txt","r");
+            break;
+        case 3:
+            FILE *game = fopen("savedGames/Game3.txt","r");
+            break;
+    }
+    int isSaved;
+    fscanf(game,"%d",&isSaved);
+    if (isSaved == 1){
+        printf("\n        There is a game already saved here do you want to over write it ?\n");
+        printf("\n                                        1- Yes
+        printf("\n                                        2- No");
+        do {
+        int choice = 0;
+        scanf("%d",&choice);
+        switch (choice) {
+            case 1:
+                break;
+            case 2:
+                return 0;
+            case 0:
+                fgets(garbage,100,stdin);
+            default:
+                invalidInput();
+            }
+        } while (choice != 1);
+    fclose(game);
+    switch (n){
+        case 1:
+            FILE *game = fopen("savedGames/Game1.txt","w");
+            break;
+        case 2:
+            FILE *game = fopen("savedGames/Game2.txt","w");
+            break;
+        case 3:
+            FILE *game = fopen("savedGames/Game3.txt","w");
+            break;
+    }
+    fprintf(game,"1\n");
+    fprintf(game,"%s\n",player1.name);
+    fprintf(game,"%d\n",player1.score);
+    fprintf(game,"%d\n",player1.turn);
+    fprintf(game,"%s\n",player2.name);
+    fprintf(game,"%d\n",player2.score);
+    fprintf(game,"%d\n",player2.turn);
+    fprintf(game,"%d\n%d\n%d\n%d\n%d\n",rounds,relines,numOfBoxes,gridSize,numOfPlayers);
+    for (int i=0; i<11; i++){
+        for (int j=0; j<6; j++){
+            fprintf(game,"%d ",playerGrid[i][j]);
+        }
+        fprintf(game,"\n");
+    }
+    for (int i=0; i<5; i++){
+        for (int j=0; j<5; j++){
+            fprintf(game,"%d ",boxesGrid[i][j]);
+        }
+        fprintf(game,"\n");
+    }
+    for (int i=0; i<60; i++){
+        for (int j=0; j<4; j++){
+            fprintf(game,"%d ",records[i][j]);
+        }
+        fprintf(game,"\n");
+    }
+    fprintf(game,"%d\n",top);
+    int t = time(NULL);
+    int timeTillNow = t - startTime;
+    fprintf(game,"%d\n",timeTillNow);
+    fclose(game);
+    return 1;
+}
+
+
+void unMakeChanges(){
+    rounds--;
+    relines++;
+    int i = records[rounds][0];
+    int j = records[rounds][1];
+    if (i%2 == 0){
+        grid[i][(j/2)+1] = false;
+        playerGrid[i][(j/2)+1] = 0;
+    }
+    else {
+        grid[i][j/2] = false;
+        playerGrid[i][j/2] = 0;
+    }
+    if (records[rounds][2] == 1){
+        player1.moves--;
+    }
+    else {
+        player2.moves--;
+    }
+    undoBoxes(i,j);
+}
+void redoChanges(){
+    rounds++;
+    makeChanges(records[rounds][0],records[rounds][1]);
 }
 
 void initializingExpert()

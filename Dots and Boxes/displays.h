@@ -20,6 +20,7 @@ void eVline();     void Vline();
 extern int numOfPlayers;
 extern int gridSize;
 extern int numOfBoxes;
+extern int overtime;
 extern int top; // the last index of redo array.
 extern int records[60][4];
 extern bool grid[11][6];
