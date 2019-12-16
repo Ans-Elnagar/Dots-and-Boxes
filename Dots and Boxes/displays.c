@@ -191,6 +191,9 @@ void uicomp(){
     t1=time(NULL);
     t1=t1-startTime;
     mins=t1/60;secs=t1%60;
+    if (rounds%2!=player1.turn){
+        computerMoves();
+    }
     //display in screen
     printf("                TURN          REMAINING LINES          TIME   \n"
       "             \033[1;34m Player 1\033[0m              %d                 %2d:%2d  \n",relines,mins,secs);
@@ -206,6 +209,7 @@ void uicomp(){
     for (;;){
     printf("        enter your play(Row Col for the line) : ");
     m1=0;m2=0;
+    int x=0,y=0;
     scanf("%d",&m1);
     switch (m1){
     case 0 :
@@ -232,6 +236,25 @@ void uicomp(){
         invalidInput();
         break;
       }
+      if (m1>gridSize||m1<=0||m2>gridSize||m2<=0||m1%2==m2%2){
+        invalidInput();
+      }
+    else{
+        x=m1-1;y=m2-1;
+        if (x%2==0){
+            if (grid[x][(y/2)+1]==1) invalidInput();
+            else{
+            makeChanges(x,y);
+            }
+        }
+        else {
+            if (grid[x][y/2]==1) invalidInput();
+            else{
+            makeChanges(x,y);
+            }
+        }
+
+    }
 
       ////////////////
       break;
@@ -274,6 +297,7 @@ void uiplayer(){
     printf("            press (50) undo ,(60) redo ,(70) save game ,(80) back to main menu ,(90) exit\n");
     for (;;){
     m1=0;m2=0;
+    int x=0,y=0;
     printf("        enter your play(Row Col for the line) : ");
     scanf("%d",&m1);
     switch (m1){
@@ -301,6 +325,25 @@ void uiplayer(){
         invalidInput();
         break;
       }
+      if (m1>gridSize||m1<=0||m2>gridSize||m2<=0||m1%2==m2%2){
+        invalidInput();
+      }
+    else{
+        x=m1-1;y=m2-1;
+        if (x%2==0){
+            if (grid[x][(y/2)+1]==1) invalidInput();
+            else{
+            makeChanges(x,y);
+            }
+        }
+        else {
+            if (grid[x][y/2]==1) invalidInput();
+            else{
+            makeChanges(x,y);
+            }
+        }
+
+    }
 
       ////////////////
       break;
