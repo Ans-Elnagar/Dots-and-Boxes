@@ -1,5 +1,4 @@
 #include "processing.h"
-
 void makeChanges(int i, int j){
     records[rounds][0] = i;
     records[rounds][1] = j;
@@ -143,8 +142,34 @@ void unMakeChanges(){
     undoBoxes(i,j);
 }
 void redoChanges(){
+    int i,j,turn;
+    i = records[rounds][0];
+    j = records[rounds][1];
+    turn = records[rounds][2];
+    if (i%2 == 0){
+        grid[i][(j/2)+1] = true;
+        if (turn == 1){
+            playerGrid[i][(j/2)+1] = 1;
+        } else {
+            playerGrid[i][(j/2)+1] = 2;
+        }
+    } else {
+        grid[i][j/2] = true;
+        if (turn == 1){
+            playerGrid[i][j/2] = 1;
+        } else {
+            playerGrid[i][j/2] = 2;
+        }
+    }
+    if (turn == 1){
+        player1.moves++;
+    }
+    else {
+        player2.moves++;
+    }
+    checkBoxes(i,j);
+    relines--;
     rounds++;
-    makeChanges(records[rounds][0],records[rounds][1]);
 }
 
 void initializingExpert()
@@ -384,7 +409,7 @@ void undoBoxes(int i,int j)
         if (i==0)
         {
             //checking the box under
-            if (boxesGrid[0][j-1]!=0);
+            if (boxesGrid[0][j-1]!=0)
             {
                 swapTurns();
                 scoreDec(turn);
@@ -393,7 +418,7 @@ void undoBoxes(int i,int j)
         } else if (i==(gridSize-1))
         {
             //checking the box above
-            if (boxesGrid[(i/2)-1][j-1]!=0);
+            if (boxesGrid[(i/2)-1][j-1]!=0)
             {
                 swapTurns();
                 scoreDec(turn);
@@ -407,12 +432,12 @@ void undoBoxes(int i,int j)
                 swapTurns();
             }
             //checking the box under
-            if (boxesGrid[(i/2)][j-1]!=0);
+            if (boxesGrid[(i/2)][j-1]!=0)
             {
                 scoreDec(turn);
             }
             //checking the box above
-            if (boxesGrid[(i/2)-1][j-1]!=0);
+            if (boxesGrid[(i/2)-1][j-1]!=0)
             {
                 scoreDec(turn);
             }
@@ -466,10 +491,10 @@ void undoBoxes(int i,int j)
 void loadData(FILE *fptr)
 {
     int x,y;
-    fscanf(fptr,"%s",&player1.name);
+    fscanf(fptr,"%s",player1.name);
     fscanf(fptr,"%d",&player1.score);
     fscanf(fptr,"%d",&player1.turn);
-    fscanf(fptr,"%s",&player2.name);
+    fscanf(fptr,"%s",player2.name);
     fscanf(fptr,"%d",&player2.score);
     fscanf(fptr,"%d",&player2.turn);
     fscanf(fptr,"%d",&rounds);
@@ -551,6 +576,7 @@ int loadGames(int g)
             }
             break;
     }
+    return 0;
 }
 void clearGameData()
 {
@@ -598,7 +624,7 @@ void loadTop()
     top10=fopen("Top10.txt","r");
     for(int i=0;i<10;i++)
     {
-        fscanf(top10,"%s",&topNames[i]);
+        fscanf(top10,"%s",topNames[i]);
         fscanf(top10,"%d",&topScores[i]);
     }
 }

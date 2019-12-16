@@ -5,8 +5,8 @@
 #include <stdbool.h>
 #include <time.h>
 #include <string.h>
-#include "types.h"
 #include "displays.h"
+#include "types.h"
 void makeChanges(int i, int j);
 void unMakeChanges();
 int save(int n);

@@ -5,10 +5,12 @@
 #include <stdbool.h>
 #include <time.h>
 #include <string.h>
-#include "types.h"
 #include "processing.h"
+#include "types.h"
 void MainMenu();    void ModeMenu();
 void uicomp();      void uiplayer();
+void loadUi();      void plnameco();
+void plnamepl();    void savegu();
 void redL();        void redB();
 void blueL();       void blueB();
 void reset();
