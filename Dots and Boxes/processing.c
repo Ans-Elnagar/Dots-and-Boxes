@@ -23,6 +23,12 @@ void makeChanges(int i, int j){
         }
     }
     checkBoxes(i,j);
+    if (rounds%2 == player1.turn){
+        player1.moves++;
+    }
+    else {
+        player2.moves++;
+    }
     relines--;
     rounds++;
     if (numOfPlayers == 1)
