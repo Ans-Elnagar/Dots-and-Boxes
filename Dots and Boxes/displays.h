@@ -30,4 +30,6 @@ extern int relines,startTime;
 extern player player1,player2;
 extern char garbage[100];
 extern int avInd[60][2];
+extern char topNames[10][30];
+extern int topScores[10];
 #endif // DISPLAYS_H_INCLUDED

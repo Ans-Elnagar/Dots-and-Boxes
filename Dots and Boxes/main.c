@@ -16,9 +16,11 @@ int boxesGrid[5][5];
 player player1={"Player 1","Blue",0,1,0},player2={"Player 2","Red",0,0,0};
 char garbage[100];
 int avInd[60][2];
+char topNames[10][30];
+int topScores[10];
 int main()
 {
-
+    loadTop();
     MainMenu();
     exit(EXIT_SUCCESS);
 }
