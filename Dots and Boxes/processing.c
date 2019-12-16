@@ -24,7 +24,8 @@ void makeChanges(int i, int j){
     }
     checkBoxes(i,j);
     rounds++;
-    if (numOfPlayers == 1){
+    if (numOfPlayers == 1)
+        {
         uicomp();
     }else {
         uiplayer();
@@ -80,6 +81,14 @@ void computerMoves()
     int b=avInd[r][1];
     grid[a][b]=1;
     relines--;
+    if(i%2==0)
+    {
+        b=(b-1)*2;
+    } else
+    {
+        b=b*2;
+    }
+    makeChanges(a,b);
     // Check for closed box //
 }
 void scoreInc(int turn)
@@ -105,40 +114,64 @@ void checkBoxes(int i,int j)
     {
         if (i==0)
         {
-            //checking the box above
+            //checking the box under
             if(grid[1][j]==1 && grid[1][j-1]==1 && grid[2][j]==1)
             {
                 scoreInc(turn);
                 swapTurns();
-                boxesGrid[0][j-1]=1;
+                if (turn==player1.turn)
+                {
+                    boxesGrid[0][j-1]=1;
+                } else
+                {
+                    boxesGrid[0][j-1]=2;
+                }
                 records[rounds][3]++;
             }
 
         } else if (i==(gridSize-1))
         {
-            //checking the box under
-            if(grid[gridSize-2][j]==1 && grid[gridSize-2][j-1]==1 && grid[gridSize-3][j]==1)
+            //checking the box above
+            if(grid[i-1][j]==1 && grid[i-1][j-1]==1 && grid[i-2][j]==1)
             {
                 scoreInc(turn);
                 swapTurns();
-                boxesGrid[(i/2)-1][j-1]=1;
+                if (turn==player1.turn)
+                {
+                    boxesGrid[(i/2)-1][j-1]=1;
+                } else
+                {
+                    boxesGrid[(i/2)-1][j-1]=2;
+                }
                 records[rounds][3]++;
             }
 
         } else
         {
-            //checking the box above
+            //checking the box under
             if(grid[i+1][j]==1 && grid[i+1][j-1]==1 && grid[i+2][j]==1)
             {
                 scoreInc(turn);
-                boxesGrid[(i/2)][j-1]=1;
+                if (turn==player1.turn)
+                {
+                    boxesGrid[(i/2)][j-1]=1;
+                } else
+                {
+                    boxesGrid[(i/2)][j-1]=2;
+                }
                 records[rounds][3]++;
             }
-            //checking the box under
+            //checking the box above
             if(grid[i-1][j]==1 && grid[i-1][j-1]==1 && grid[i-2][j]==1)
             {
                 scoreInc(turn);
-                boxesGrid[(i/2)-1][j-1]=1;
+                if (turn==player1.turn)
+                {
+                    boxesGrid[(i/2)-1][j-1]=1;
+                } else
+                {
+                    boxesGrid[(i/2)-1][j-1]=2;
+                }
                 records[rounds][3]++;
             }
             //swapping turns of any of the two boxes were closed
@@ -157,7 +190,13 @@ void checkBoxes(int i,int j)
             {
                 scoreInc(turn);
                 swapTurns();
-                boxesGrid[i/2][j]=1;
+                if (turn==player1.turn)
+                {
+                    boxesGrid[i/2][j]=1;
+                } else
+                {
+                    boxesGrid[i/2][j]=2;
+                }
                 records[rounds][3]++;
             }
 
@@ -168,7 +207,13 @@ void checkBoxes(int i,int j)
             {
                 scoreInc(turn);
                 swapTurns();
-                boxesGrid[i/2][j-1]=1;
+                if (turn==player1.turn)
+                {
+                    boxesGrid[i/2][j-1]=1;
+                } else
+                {
+                    boxesGrid[i/2][j-1]=2;
+                }
                 records[rounds][3]++;
             }
 
@@ -178,14 +223,26 @@ void checkBoxes(int i,int j)
             if(grid[i+1][j+1] ==1 && grid[i-1][j+1]==1 && grid[i][j+1]==1)
             {
                 scoreInc(turn);
-                boxesGrid[i/2][j]=1;
+                if (turn==player1.turn)
+                {
+                    boxesGrid[i/2][j]=1;
+                } else
+                {
+                    boxesGrid[i/2][j]=2;
+                }
                 records[rounds][3]++;
             }
             //checking the box on the left
             if(grid[i+1][j]==1 && grid[i-1][j]==1 && grid[i][j-1]==1)
             {
                 scoreInc(turn);
-                boxesGrid[i/2][j-1]=1;
+                if (turn==player1.turn)
+                {
+                    boxesGrid[i/2][j-1]=1;
+                } else
+                {
+                    boxesGrid[i/2][j-1]=2;
+                }
                 records[rounds][3]++;
             }
             //swapping turns if any of the two boxes was closed
