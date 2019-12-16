@@ -39,9 +39,8 @@ void MainMenu(){
                 ModeMenu();
                 break;
             case 3:
-                ///////////////
-                ///////////////
-                break;
+                loadUi();
+
             case 4:
                 ///////////////
                 ///////////////
@@ -80,13 +79,15 @@ void ModeMenu(){
                 switch(choice){
                 case 1:
                         numOfPlayers = 1;
-                        startTime=time(NULL);
+                        startTime=time(NULL)-overtime;
+                        plnameco();
                         uicomp();
                         /////////
                         break;
                     case 2:
                         numOfPlayers = 2;
-                        startTime=time(NULL);
+                        startTime=time(NULL)-overtime;
+                        plnamepl();
                         uiplayer();
                         ////////
                         ////////
@@ -191,6 +192,7 @@ void uicomp(){
     t1=time(NULL);
     t1=t1-startTime;
     mins=t1/60;secs=t1%60;
+    player2.name='Computer';
     if (rounds%2!=player1.turn && relines != 0){
         computerMoves();
     }
@@ -205,7 +207,7 @@ void uicomp(){
            GridMenu();
            //here the grid
            ///////////////////
-    printf("            press (50) undo ,(60) redo ,(70) save game ,(80) back to main menu ,(90) exit\n");
+    printf("            press (50) undo ,(60) redo ,(70) save game ,(80) back to main menu ,(90) exit\n\n");
     while (relines != 0){
     printf("        enter your play(Row Col for the line) : ");
     m1=0;m2=0;
@@ -218,14 +220,35 @@ void uicomp(){
         break;
     case 50:
         ///// undo operation /////
+        if (rounds==1){
+            printf("                There's no moves left to undo.");
+        }
+        else{
+        unMakeChanges();
+        unMakeChanges();
+        }
         break;
     case 60:
         ///// redo operation /////
+        if (rounds==top){
+            printf("                There's no moves to redo.");
+        }
+        else {
+        redoChanges();
+        redoChanges();
+        }
         break;
     case 70 :
         ///// save game /////
+        printf("\n\n \033[1;33m"
+           "choose one to save in : \n"
+           "1. Game 1.\n"
+           "2. Game 2.\n"
+           "3. Game 3\n\033[0m");
+        savegu();
         break;
     case 80 :
+        clearGameData();
         MainMenu();
         break;
     case 90 :
@@ -261,6 +284,39 @@ void uicomp(){
 
     }
 }
+    if (relines==0){
+        if (player1.score>player2.score){
+            printf("                               %s wins !!\n",player1.name);
+        }
+        else if (player2.score>player1.score){
+            printf("                               Computer Wins !! Hard Luck !");
+        }
+        else if (player1.score==player2.score){
+            printf("                               There's a tie,no one wins");
+        }
+        printf("\nEnter (80) to back to the main menu (90) to exit : ");
+        l :
+        int oo=0;
+        scanf("%d",&oo);
+        switch (oo){
+        case 80:
+            clearGameData();
+            MainMenu();
+            break;
+        case 90 :
+            exit(EXIT_SUCCESS);
+        case 0 :
+        fgets(garbage,100,stdin);
+        invalidInput();
+        printf("\nenter again :");
+        goto l;
+        default :
+            invalidInput();
+            printf("\nenter again :");
+            goto l:
+        }
+
+    }
 }
 //function to display user interface if he plays with another player
 void uiplayer(){
@@ -294,7 +350,7 @@ void uiplayer(){
            GridMenu();
            //here the grid
            //////////////
-    printf("            press (50) undo ,(60) redo ,(70) save game ,(80) back to main menu ,(90) exit\n");
+    printf("            press (50) undo ,(60) redo ,(70) save game ,(80) back to main menu ,(90) exit\n\n");
     while (relines != 0){
     m1=0;m2=0;
     int x=0,y=0;
@@ -305,16 +361,35 @@ void uiplayer(){
         fgets(garbage,100,stdin);
         invalidInput();
         break ;
-    case 50:
+    case 50:if (rounds==1){
+            printf("                There's no moves left to undo.");
+        }
+        else{
+        unMakeChanges();
+        }
         ///// undo operation /////
         break;
     case 60:
+        if (rounds==top){
+            printf("                There's no moves to redo.");
+        }
+        else {
+            redoChanges();
+        }
         ///// redo operation /////
+
         break;
     case 70 :
         ///// save game /////
+        printf("\n\n \033[1;33m"
+           "choose one to save in : \n"
+           "1. Game 1.\n"
+           "2. Game 2.\n"
+           "3. Game 3\n\033[0m");
+        savegu();
         break;
     case 80 :
+        clearGameData();
         MainMenu();
         break;
     case 90 :
@@ -350,6 +425,123 @@ void uiplayer(){
 
     }
 }
+if (relines==0){
+        if (player1.score>player2.score){
+            printf("                               %s wins !!\n",player1.name);
+        }
+        else if (player2.score>player1.score){
+            printf("                               %s wins !!\n",player2.name);
+        }
+        else if (player1.score==player2.score){
+            printf("                               There's a tie,no one wins");
+        }
+    }
+}
+/***************************************************
+* plnameco : getting player name in computer mode ***
+****************************************************/
+void plnameco(){
+    system("cls");
+    printf("\n\n\n""\033[1;31m"
+           "            ##########################################################            \n"
+           "            ##########################################################            \n"
+           "            ##                                                      ##            \n"
+           "            ##                \033[1;33m""Dots     and     Boxes                \033[1;31m##            \n"
+           "            ##                                                      ##            \n"
+           "            ##########################################################            \n"
+           "            ##########################################################            \n"
+           "\n\n\n\n""\033[1;33m"
+           "                        Enter player 1 name : \033[0m");
+    gets(player1.name);
+}
+/********************************************************
+* plnamepl : getting player names in two players mode ***
+*********************************************************/
+void plnamepl(){
+    system("cls");
+    printf("\n\n\n""\033[1;31m"
+           "            ##########################################################            \n"
+           "            ##########################################################            \n"
+           "            ##                                                      ##            \n"
+           "            ##                \033[1;33m""Dots     and     Boxes                \033[1;31m##            \n"
+           "            ##                                                      ##            \n"
+           "            ##########################################################            \n"
+           "            ##########################################################            \n"
+           "\n\n\n\n""\033[1;33m"
+           "                        Enter player 1 name : \033[0m");
+    gets(player1.name);
+    printf("\n\n                        \033[1;33mEnter player 1 name : \033[0m");
+    gets(player2.name);
+
+}
+void loadUi(){
+    system("cls");
+    printf("\n\n\n""\033[1;31m"
+           "            ##########################################################            \n"
+           "            ##########################################################            \n"
+           "            ##                                                      ##            \n"
+           "            ##                \033[1;33m""Dots     and     Boxes                \033[1;31m##            \n"
+           "            ##                                                      ##            \n"
+           "            ##########################################################            \n"
+           "            ##########################################################            \n"
+           "\n\n""\033[1;33m"
+           "                                choose the game you want to load: \n"
+           "                                1. Game 1.\n"
+           "                                2. Game 2.\n"
+           "                                3. Game 3.\n"
+           "                                \033[1;31m4. Back to main menu.\n\033[0m"
+           "\n\n");
+                printf("                                        ");
+                invalidl :
+                int ch=0,found;
+                scanf("%d",&ch);
+                if (ch==1||ch==2||ch==3){
+                    found=loadGames(ch);
+                    if (found==0){
+                        printf("There's no game here to be loaded, enter any character to continue");
+                        getchar();
+                        loadUi();
+                    }
+                }
+                else if (ch==4){
+                    MainMenu();
+                }
+                else if (ch==0){
+                    fgets(garbage,100,stdin);
+                    invalidInput();
+                    printf("enter your choice again : ");
+                    goto invalidl;
+                }
+                else {
+                    invalidInput();
+                    printf("enter your choice again : ");
+                    goto invalidl;
+                }
+                break;
+}
+//function to save game
+void savegu(){
+    int ch=0,found;
+        scanf("%d",&ch);
+        if (ch==1||ch==2||ch==3){
+        found=save(ch);
+        if (numOfPlayers==1){
+            uicomp();
+        }
+        else {
+            uiplayer();
+        }
+
+        }
+        else if (ch==0){
+        fgets(garbage,100,stdin);
+        invalidInput();
+        savegu();
+        }
+        else{
+            invalidInput();
+            savegu();
+        }
 }
 /**************************************
 * redL : every text after it is red ***
