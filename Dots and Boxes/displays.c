@@ -191,7 +191,7 @@ void uicomp(){
     t1=time(NULL);
     t1=t1-startTime;
     mins=t1/60;secs=t1%60;
-    if (rounds%2!=player1.turn){
+    if (rounds%2!=player1.turn && relines != 0){
         computerMoves();
     }
     //display in screen
@@ -206,7 +206,7 @@ void uicomp(){
            //here the grid
            ///////////////////
     printf("            press (50) undo ,(60) redo ,(70) save game ,(80) back to main menu ,(90) exit\n");
-    for (;;){
+    while (relines != 0){
     printf("        enter your play(Row Col for the line) : ");
     m1=0;m2=0;
     int x=0,y=0;
@@ -295,7 +295,7 @@ void uiplayer(){
            //here the grid
            //////////////
     printf("            press (50) undo ,(60) redo ,(70) save game ,(80) back to main menu ,(90) exit\n");
-    for (;;){
+    while (relines != 0){
     m1=0;m2=0;
     int x=0,y=0;
     printf("        enter your play(Row Col for the line) : ");

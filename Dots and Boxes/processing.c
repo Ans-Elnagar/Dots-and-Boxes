@@ -6,23 +6,30 @@ void makeChanges(int i, int j){
     if (i%2 == 0){
         grid[i][(j/2)+1] = true;
         if (rounds%2 == player1.turn){
-            records[rounds][1] = 1;
+            records[rounds][2] = 1;
             playerGrid[i][(j/2)+1] = 1;
         } else {
-            records[rounds][1] = 2;
+            records[rounds][2] = 2;
             playerGrid[i][(j/2)+1] = 2;
         }
     } else {
         grid[i][j/2] = true;
         if (rounds%2 == player1.turn){
-            records[rounds][1] = 1;
+            records[rounds][2] = 1;
             playerGrid[i][j/2] = 1;
         } else {
-            records[rounds][1] = 2;
+            records[rounds][2] = 2;
             playerGrid[i][j/2] = 2;
         }
     }
     checkBoxes(i,j);
+    if (rounds%2 == player1.turn){
+        player1.moves++;
+    }
+    else {
+        player2.moves++;
+    }
+    relines--;
     rounds++;
     if (numOfPlayers == 1)
         {
@@ -57,21 +64,17 @@ void initializingExpert()
 void computerMoves()
 {
     int h=0;
-    avInd[relines][2];
+    /*avInd[relines][2];*/
     int i,j;
-    for(i=0;i<11;i++)
+    for(i=0;i<gridSize;i++)
     {
-        for(j=(i+1)%2;j<6;j++)
+        for(j=(i+1)%2;j<=numOfBoxes;j++)
         {
-            switch (grid[i][j])
+            if(grid[i][j]==0)
             {
-                case 0:
-                    avInd[h][0]=i;
-                    avInd[h][1]=j;
-                    h++;
-                    break;
-                default:
-                    break;
+                avInd[h][0]=i;
+                avInd[h][1]=j;
+                h++;
             }
         }
     }
@@ -79,9 +82,7 @@ void computerMoves()
     int r=rand()%relines;
     int a=avInd[r][0];
     int b=avInd[r][1];
-    grid[a][b]=1;
-    relines--;
-    if(i%2==0)
+    if(a%2==0)
     {
         b=(b-1)*2;
     } else
@@ -112,13 +113,13 @@ void checkBoxes(int i,int j)
     int turn = rounds%2;
     if (i%2==0)
     {
+        j=(j/2)+1;
         if (i==0)
         {
             //checking the box under
             if(grid[1][j]==1 && grid[1][j-1]==1 && grid[2][j]==1)
             {
                 scoreInc(turn);
-                swapTurns();
                 if (turn==player1.turn)
                 {
                     boxesGrid[0][j-1]=1;
@@ -127,6 +128,7 @@ void checkBoxes(int i,int j)
                     boxesGrid[0][j-1]=2;
                 }
                 records[rounds][3]++;
+                swapTurns();
             }
 
         } else if (i==(gridSize-1))
@@ -135,7 +137,6 @@ void checkBoxes(int i,int j)
             if(grid[i-1][j]==1 && grid[i-1][j-1]==1 && grid[i-2][j]==1)
             {
                 scoreInc(turn);
-                swapTurns();
                 if (turn==player1.turn)
                 {
                     boxesGrid[(i/2)-1][j-1]=1;
@@ -144,6 +145,7 @@ void checkBoxes(int i,int j)
                     boxesGrid[(i/2)-1][j-1]=2;
                 }
                 records[rounds][3]++;
+                swapTurns();
             }
 
         } else
@@ -183,13 +185,13 @@ void checkBoxes(int i,int j)
 
     } else
     {
+        j=j/2;
         if (j==0)
         {
             //checking the box on the right
             if(grid[i+1][j+1] ==1 && grid[i-1][j+1]==1 && grid[i][j+1]==1)
             {
                 scoreInc(turn);
-                swapTurns();
                 if (turn==player1.turn)
                 {
                     boxesGrid[i/2][j]=1;
@@ -198,6 +200,7 @@ void checkBoxes(int i,int j)
                     boxesGrid[i/2][j]=2;
                 }
                 records[rounds][3]++;
+                swapTurns();
             }
 
         } else if (j==numOfBoxes)
@@ -206,7 +209,6 @@ void checkBoxes(int i,int j)
             if(grid[i+1][j]==1 && grid[i-1][j]==1 && grid[i][j-1]==1)
             {
                 scoreInc(turn);
-                swapTurns();
                 if (turn==player1.turn)
                 {
                     boxesGrid[i/2][j-1]=1;
@@ -215,6 +217,7 @@ void checkBoxes(int i,int j)
                     boxesGrid[i/2][j-1]=2;
                 }
                 records[rounds][3]++;
+                swapTurns();
             }
 
         } else
