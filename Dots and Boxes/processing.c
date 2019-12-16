@@ -6,23 +6,24 @@ void makeChanges(int i, int j){
     if (i%2 == 0){
         grid[i][(j/2)+1] = true;
         if (rounds%2 == player1.turn){
-            records[rounds][1] = 1;
+            records[rounds][2] = 1;
             playerGrid[i][(j/2)+1] = 1;
         } else {
-            records[rounds][1] = 2;
+            records[rounds][2] = 2;
             playerGrid[i][(j/2)+1] = 2;
         }
     } else {
         grid[i][j/2] = true;
         if (rounds%2 == player1.turn){
-            records[rounds][1] = 1;
+            records[rounds][2] = 1;
             playerGrid[i][j/2] = 1;
         } else {
-            records[rounds][1] = 2;
+            records[rounds][2] = 2;
             playerGrid[i][j/2] = 2;
         }
     }
     checkBoxes(i,j);
+    relines--;
     rounds++;
     if (numOfPlayers == 1){
         uicomp();
