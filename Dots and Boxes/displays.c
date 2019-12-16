@@ -356,7 +356,7 @@ void invalidInput(){
 *** dotShape : printing the dot shape so it can be changed at any time ***
 **************************************************************************/
 void dotShape(){
-    printf("*");
+    printf("\376");
 }
 /*******************************************
 *** eHline : draws empty horizontal line ***

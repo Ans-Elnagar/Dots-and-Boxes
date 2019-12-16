@@ -8,6 +8,7 @@
 #include "types.h"
 #include "processing.h"
 void MainMenu();    void ModeMenu();
+void uicomp();      void uiplayer();
 void redL();        void redB();
 void blueL();       void blueB();
 void reset();
@@ -21,10 +22,11 @@ extern int gridSize;
 extern int numOfBoxes;
 extern int records[60][4];
 extern bool grid[11][6];
-extern int playerGrid[11][11];
+extern int playerGrid[11][6];
 extern int boxesGrid[5][5];
 extern int rounds;
 extern int relines,startTime;
 extern player player1,player2;
 extern char garbage[100];
+extern int avInd[60][2];
 #endif // DISPLAYS_H_INCLUDED

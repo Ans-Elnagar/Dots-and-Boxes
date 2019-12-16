@@ -34,18 +34,15 @@
 		<Unit filename="displays.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="displays.h">
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
+		<Unit filename="displays.h" />
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="processing.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="processing.h">
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
+		<Unit filename="processing.h" />
+		<Unit filename="types.h" />
 		<Extensions>
 			<code_completion />
 			<envvars />

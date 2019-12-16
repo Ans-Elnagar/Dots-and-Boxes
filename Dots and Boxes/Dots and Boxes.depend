@@ -7,7 +7,7 @@
 	"processing.h"
 	"types.h"
 
-1576368315 e:\cse\1st term\programming\new folder (2)\dots-and-boxes\dots and boxes\displays.h
+1576454374 e:\cse\1st term\programming\new folder (2)\dots-and-boxes\dots and boxes\displays.h
 	<stdio.h>
 	<stdlib.h>
 	<stdbool.h>
@@ -16,7 +16,7 @@
 	"types.h"
 	"processing.h"
 
-1576369526 source:e:\cse\1st term\programming\new folder (2)\dots-and-boxes\dots and boxes\displays.c
+1576454346 source:e:\cse\1st term\programming\new folder (2)\dots-and-boxes\dots and boxes\displays.c
 	"displays.h"
 
 1576358752 source:c:\users\seifg\desktop\cmd\dots-and-boxes\dots and boxes\main.c
@@ -48,10 +48,10 @@
 1576357714 source:c:\users\seifg\desktop\cmd\dots-and-boxes\dots and boxes\processing.c
 	"processing.h"
 
-1576368315 source:e:\cse\1st term\programming\new folder (2)\dots-and-boxes\dots and boxes\processing.c
+1576453804 source:e:\cse\1st term\programming\new folder (2)\dots-and-boxes\dots and boxes\processing.c
 	"processing.h"
 
-1576368315 e:\cse\1st term\programming\new folder (2)\dots-and-boxes\dots and boxes\processing.h
+1576454366 e:\cse\1st term\programming\new folder (2)\dots-and-boxes\dots and boxes\processing.h
 	<stdio.h>
 	<stdlib.h>
 	<stdbool.h>
@@ -66,4 +66,42 @@
 1576357714 c:\users\seifg\desktop\cmd\dots-and-boxes\dots and boxes\types.h
 
 1576368315 e:\cse\1st term\programming\new folder (2)\dots-and-boxes\dots and boxes\types.h
+
+1576393692 source:d:\new project\dots-and-boxes\dots and boxes\displays.c
+	"displays.h"
+
+1576395151 d:\new project\dots-and-boxes\dots and boxes\displays.h
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	<time.h>
+	<string.h>
+	"types.h"
+	"processing.h"
+
+1576393692 d:\new project\dots-and-boxes\dots and boxes\types.h
+
+1576395151 d:\new project\dots-and-boxes\dots and boxes\processing.h
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	<time.h>
+	<string.h>
+	"types.h"
+	"displays.h"
+
+1576395223 source:d:\new project\dots-and-boxes\dots and boxes\main.c
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	"displays.h"
+	"processing.h"
+	"types.h"
+
+1576405426 source:d:\new project\dots-and-boxes\dots and boxes\processing.c
+	"processing.h"
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	"displays.h"
 
