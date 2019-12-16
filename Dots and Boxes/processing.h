@@ -8,6 +8,7 @@
 #include "types.h"
 #include "displays.h"
 void makeChanges(int i, int j);
+void computerMoves();
 extern int numOfPlayers;
 extern int gridSize;
 extern int records[60][4];
