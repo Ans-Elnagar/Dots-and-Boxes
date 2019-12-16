@@ -20,6 +20,7 @@ void eVline();     void Vline();
 extern int numOfPlayers;
 extern int gridSize;
 extern int numOfBoxes;
+extern int overtime;
 extern int top; // the last index of redo array.
 extern int records[60][4];
 extern bool grid[11][6];
@@ -30,4 +31,6 @@ extern int relines,startTime;
 extern player player1,player2;
 extern char garbage[100];
 extern int avInd[60][2];
+extern char topNames[10][30];
+extern int topScores[10];
 #endif // DISPLAYS_H_INCLUDED
