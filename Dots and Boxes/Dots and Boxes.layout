@@ -2,6 +2,7 @@
 <CodeBlocks_layout_file>
 	<FileVersion major="1" minor="0" />
 	<ActiveTarget name="Debug" />
+<<<<<<< HEAD
 	<File name="processing.c" open="1" top="1" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="13443" topLine="0" />
@@ -17,4 +18,6 @@
 			<Cursor1 position="1912" topLine="30" />
 		</Cursor>
 	</File>
+=======
+>>>>>>> 30db5852114f0e30cd4c1a9d7e43a557b765e1c6
 </CodeBlocks_layout_file>
