@@ -5,10 +5,12 @@
 #include <stdbool.h>
 #include <time.h>
 #include <string.h>
-#include "types.h"
 #include "processing.h"
+#include "types.h"
 void MainMenu();    void ModeMenu();
 void uicomp();      void uiplayer();
+void loadUi();      void plnameco();
+void plnamepl();    void savegu();
 void redL();        void redB();
 void blueL();       void blueB();
 void reset();
@@ -20,6 +22,7 @@ void eVline();     void Vline();
 extern int numOfPlayers;
 extern int gridSize;
 extern int numOfBoxes;
+extern int overtime;
 extern int top; // the last index of redo array.
 extern int records[60][4];
 extern bool grid[11][6];
@@ -30,4 +33,6 @@ extern int relines,startTime;
 extern player player1,player2;
 extern char garbage[100];
 extern int avInd[60][2];
+extern char topNames[10][30];
+extern int topScores[10];
 #endif // DISPLAYS_H_INCLUDED

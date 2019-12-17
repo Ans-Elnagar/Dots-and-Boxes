@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1576500301 source:e:\cse\1st term\programming\new folder (2)\dots-and-boxes\dots and boxes\main.c
+1576531499 source:e:\cse\1st term\programming\new folder (2)\dots-and-boxes\dots and boxes\main.c
 	<stdio.h>
 	<stdlib.h>
 	<stdbool.h>
@@ -7,7 +7,27 @@
 	"processing.h"
 	"types.h"
 
-1576500301 e:\cse\1st term\programming\new folder (2)\dots-and-boxes\dots and boxes\displays.h
+1576533368 e:\cse\1st term\programming\new folder (2)\dots-and-boxes\dots and boxes\displays.h
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	<time.h>
+	<string.h>
+	"processing.h"
+	"types.h"
+
+1576534804 source:e:\cse\1st term\programming\new folder (2)\dots-and-boxes\dots and boxes\displays.c
+	"displays.h"
+
+1576501306 source:c:\users\seifg\desktop\cmd\dots-and-boxes\dots and boxes\main.c
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	"displays.h"
+	"processing.h"
+	"types.h"
+
+1576501306 c:\users\seifg\desktop\cmd\dots-and-boxes\dots and boxes\displays.h
 	<stdio.h>
 	<stdlib.h>
 	<stdbool.h>
@@ -16,27 +36,7 @@
 	"types.h"
 	"processing.h"
 
-1576500301 source:e:\cse\1st term\programming\new folder (2)\dots-and-boxes\dots and boxes\displays.c
-	"displays.h"
-
-1576477331 source:c:\users\seifg\desktop\cmd\dots-and-boxes\dots and boxes\main.c
-	<stdio.h>
-	<stdlib.h>
-	<stdbool.h>
-	"displays.h"
-	"processing.h"
-	"types.h"
-
-1576477331 c:\users\seifg\desktop\cmd\dots-and-boxes\dots and boxes\displays.h
-	<stdio.h>
-	<stdlib.h>
-	<stdbool.h>
-	<time.h>
-	<string.h>
-	"types.h"
-	"processing.h"
-
-1576491529 c:\users\seifg\desktop\cmd\dots-and-boxes\dots and boxes\processing.h
+1576508706 c:\users\seifg\desktop\cmd\dots-and-boxes\dots and boxes\processing.h
 	<stdio.h>
 	<stdlib.h>
 	<stdbool.h>
@@ -45,38 +45,41 @@
 	"types.h"
 	"displays.h"
 
-1576489460 source:c:\users\seifg\desktop\cmd\dots-and-boxes\dots and boxes\processing.c
+1576501306 source:c:\users\seifg\desktop\cmd\dots-and-boxes\dots and boxes\processing.c
 	"processing.h"
 
-1576500741 source:e:\cse\1st term\programming\new folder (2)\dots-and-boxes\dots and boxes\processing.c
+1576535521 source:e:\cse\1st term\programming\new folder (2)\dots-and-boxes\dots and boxes\processing.c
 	"processing.h"
 
-1576500301 e:\cse\1st term\programming\new folder (2)\dots-and-boxes\dots and boxes\processing.h
+1576533390 e:\cse\1st term\programming\new folder (2)\dots-and-boxes\dots and boxes\processing.h
 	<stdio.h>
 	<stdlib.h>
 	<stdbool.h>
 	<time.h>
 	<string.h>
+	"displays.h"
 	"types.h"
+
+1576504835 source:c:\users\seifg\desktop\cmd\dots-and-boxes\dots and boxes\displays.c
 	"displays.h"
 
-1576490530 source:c:\users\seifg\desktop\cmd\dots-and-boxes\dots and boxes\displays.c
-	"displays.h"
-
-1576477331 c:\users\seifg\desktop\cmd\dots-and-boxes\dots and boxes\types.h
+1576501306 c:\users\seifg\desktop\cmd\dots-and-boxes\dots and boxes\types.h
 
 1576500301 e:\cse\1st term\programming\new folder (2)\dots-and-boxes\dots and boxes\types.h
 
-<<<<<<< HEAD
-1576503919 source:d:\new project\dots-and-boxes\dots and boxes\displays.c
-=======
-<<<<<<< HEAD
-1576498426 source:d:\new project\dots-and-boxes\dots and boxes\displays.c
-=======
+1576503429 D
+
 1576502388 source:d:\new project\dots-and-boxes\dots and boxes\displays.c
->>>>>>> 548ef0d5945ae847c52617bf8e8fd80ee8aad10c
->>>>>>> af6a9600ea7c0c4e96e628fef979fa97d3ecccb6
+
+1576502388 ef0d5945ae847c52617bf8e8fd80ee8aad10c
+
+1576502388 a9600ea7c0c4e96e628fef979fa97d3ecccb6
+
+1576502388 d4df70e52ccd6d5882902c87a3e8f4c8f7493
+
+1576522567 74ab4a158eb68cde57cbcd49abd8e741a5503
 	"displays.h"
+	"processing.h"
 
 1576471688 d:\new project\dots-and-boxes\dots and boxes\displays.h
 	<stdio.h>
@@ -106,10 +109,75 @@
 	"processing.h"
 	"types.h"
 
-<<<<<<< HEAD
-1576497225 source:d:\new project\dots-and-boxes\dots and boxes\processing.c
-=======
 1576503429 source:d:\new project\dots-and-boxes\dots and boxes\processing.c
->>>>>>> 548ef0d5945ae847c52617bf8e8fd80ee8aad10c
+
+1576506581 source:d:\new folder (2)\new project\dots-and-boxes\dots and boxes\displays.c
+	"displays.h"
+
+1576522567 d:\new folder (2)\new project\dots-and-boxes\dots and boxes\displays.h
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	<time.h>
+	<string.h>
+	"types.h"
 	"processing.h"
+
+1576393692 d:\new folder (2)\new project\dots-and-boxes\dots and boxes\types.h
+
+1576522567 d:\new folder (2)\new project\dots-and-boxes\dots and boxes\processing.h
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	<time.h>
+	<string.h>
+	"types.h"
+	"displays.h"
+
+1576522567 source:d:\new folder (2)\new project\dots-and-boxes\dots and boxes\main.c
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	"displays.h"
+	"processing.h"
+	"types.h"
+
+1576522567 source:d:\new folder (2)\new project\dots-and-boxes\dots and boxes\processing.c
+	"processing.h"
+
+1576521842 source:e:\cse\1st term\programming\new folder (2)\dots-and-boxes\dots and boxes\displays.h
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	<time.h>
+	<string.h>
+	"types.h"
+	"processing.h"
+
+1576522411 source:e:\cse\1st term\programming\new folder (2)\dots-and-boxes\dots and boxes\processing.h
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	<time.h>
+	<string.h>
+	"types.h"
+	"displays.h"
+
+1576500301 source:e:\cse\1st term\programming\new folder (2)\dots-and-boxes\dots and boxes\types.h
+
+1576531360 e:\cse\1st term\programming\new folder (2)\dots-and-boxes\dots and boxes\main.h
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	"displays.h"
+	"processing.h"
+	"types.h"
+
+1576531360 source:e:\cse\1st term\programming\new folder (2)\dots-and-boxes\dots and boxes\main.h
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	"displays.h"
+	"processing.h"
+	"types.h"
 
