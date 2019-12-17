@@ -79,15 +79,15 @@ void ModeMenu(){
                 switch(choice){
                 case 1:
                         numOfPlayers = 1;
-                        startTime=time(NULL)-overtime;
                         plnameco();
+                        startTime=time(NULL)-overtime;
                         uicomp();
                         /////////
                         break;
                     case 2:
                         numOfPlayers = 2;
-                        startTime=time(NULL) - overtime;
                         plnamepl();
+                        startTime=time(NULL)-overtime;
                         uiplayer();
                         ////////
                         ////////
@@ -198,11 +198,11 @@ void uicomp(){
     }
     //display in screen
     printf("                TURN          REMAINING LINES          TIME   \n"
-      "             \033[1;34m Player 1\033[0m              %d                 %2d:%2d  \n",relines,mins,secs);
+      "             \033[1;34m %-10s\033[0m             %d               %2d:%2d  \n",player1.name,relines,mins,secs);
     printf("            \033[1;33m!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\033[0m\n");
-    printf("              \033[1;34mPlayer 1\033[0m                           \033[1;31mComputer\033[0m     \n"
+    printf("              \033[1;34m%-10s\033[0m                         \033[1;31mComputer\033[0m     \n"
            "              \033[1;34mMoves : %d \033[0m                         \033[1;31mMoves : %d \033[0m     \n"
-           "              \033[1;34mScore : %d \033[0m                         \033[1;31mScore : %d \033[0m     \n",player1.moves,player2.moves,player1.score,player2.score);
+           "              \033[1;34mScore : %d \033[0m                         \033[1;31mScore : %d \033[0m     \n",player1.name,player1.moves,player2.moves,player1.score,player2.score);
            printf("            \033[1;33m!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\033[0m\n");
            GridMenu();
            //here the grid
@@ -338,17 +338,17 @@ void uiplayer(){
     printf("                TURN          REMAINING LINES          TIME   \n");
     if (rounds%2==player1.turn){
         blueL();
-        printf("              %s\033[0m              %d                 %2d:%2d  \n",player1.name,relines,mins,secs);
+        printf("              %-10s\033[0m           %d                 %2d:%2d  \n",player1.name,relines,mins,secs);
     }
     else if (rounds%2==player2.turn){
         redL();
-        printf("              %s\033[0m              %d                 %2d:%2d  \n",player2.name,relines,mins,secs);
+        printf("              %-10s\033[0m           %d                 %2d:%2d  \n",player2.name,relines,mins,secs);
     }
 
     printf("            \033[1;33m!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\033[0m\n");
-    printf("              \033[1;34mPlayer 1\033[0m                               \033[1;31mPlayer 2\033[0m     \n"
+    printf("              \033[1;34m%-10s\033[0m                             \033[1;31m%-10s\033[0m     \n"
            "              \033[1;34mMoves : %d \033[0m                             \033[1;31mMoves : %d \033[0m     \n"
-           "              \033[1;34mScore : %d \033[0m                             \033[1;31mScore : %d \033[0m     \n",player1.moves,player2.moves,player1.score,player2.score);
+           "              \033[1;34mScore : %d \033[0m                             \033[1;31mScore : %d \033[0m     \n",player1.name,player2.name,player1.moves,player2.moves,player1.score,player2.score);
            printf("            \033[1;33m!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\033[0m\n");
            GridMenu();
            //here the grid
@@ -458,8 +458,10 @@ void plnameco(){
            "            ##########################################################            \n"
            "            ##########################################################            \n"
            "\n\n\n\n""\033[1;33m"
-           "                        Enter player 1 name : \033[0m");
-    gets(player1.name);
+           "                        Enter player 1 name (only 10 char) : \033[0m");
+           getchar();
+           readname(player1.name,10);
+           removespaces(player1.name);
 }
 /********************************************************
 * plnamepl : getting player names in two players mode ***
@@ -475,10 +477,13 @@ void plnamepl(){
            "            ##########################################################            \n"
            "            ##########################################################            \n"
            "\n\n\n\n""\033[1;33m"
-           "                        Enter player 1 name : \033[0m");
-    gets(player1.name);
-    printf("\n\n                        \033[1;33mEnter player 1 name : \033[0m");
-    gets(player2.name);
+           "                        Enter player 1 name (only 10 char) : \033[0m");
+    getchar();
+    readname(player1.name,11);
+    removespaces(player1.name);
+    printf("                        \033[1;33mEnter player 2 name (only 10 char) : \033[0m");
+    readname(player2.name,11);
+    removespaces(player2.name);
 
 }
 void loadUi(){
@@ -509,9 +514,22 @@ void loadUi(){
                         printf("There's no game here to be loaded, enter any character to continue");
                         getchar();
                         loadUi();
+                    } else
+                    {
+                        loadGames(ch);
+                        GridMenu();
+                    }
+                    else if (found==1){
+                        if (numOfPlayers==1){
+                            uicomp();
+                        }
+                        else{
+                            uiplayer();
+                        }
                     }
                 }
                 else if (ch==4){
+                    unMakeChanges();
                     MainMenu();
                 }
                 else if (ch==0){
@@ -549,6 +567,34 @@ void savegu(){
             invalidInput();
             savegu();
         }
+}
+void readname(char str[], int n) {
+    int ch, i=0,no=0;
+    while((ch=getchar()) != '\n'){
+        if(i<n) {
+            str[i++]=ch;
+            no++;
+            }
+    }
+    str[i]='\0';
+    for (i=0;i<no;i++){
+        str[i]=toupper(str[i]);
+    }
+    }
+void removespaces(char str[]){
+    int len,i,j;
+    len=strlen(str);
+	for(i=0; i<len; i++)
+	{
+		if(str[i]==' ')
+		{
+			for(j=i; j<len; j++)
+			{
+				str[j]=str[j+1];
+			}
+		len--;
+		}
+	}
 }
 /**************************************
 * redL : every text after it is red ***

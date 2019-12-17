@@ -56,7 +56,7 @@ int save(int n){
     if (isSaved == 1){
         printf("\n        There is a game already saved here do you want to over write it ?\n");
         printf("\n                                        1- Yes");
-        printf("\n                                        2- No");
+        printf("\n                                        2- No\n");
         int choice;
         do {
         choice = 0;
@@ -89,9 +89,11 @@ int save(int n){
     fprintf(game,"%s\n",player1.name);
     fprintf(game,"%d\n",player1.score);
     fprintf(game,"%d\n",player1.turn);
+    fprintf(game,"%d\n",player1.moves);
     fprintf(game,"%s\n",player2.name);
     fprintf(game,"%d\n",player2.score);
     fprintf(game,"%d\n",player2.turn);
+    fprintf(game,"%d\n",player2.moves);
     fprintf(game,"%d\n%d\n%d\n%d\n%d\n",rounds,relines,numOfBoxes,gridSize,numOfPlayers);
     for (int i=0; i<11; i++){
         for (int j=0; j<6; j++){
@@ -631,9 +633,11 @@ void loadData(FILE *fptr)
     fscanf(fptr,"%s",player1.name);
     fscanf(fptr,"%d",&player1.score);
     fscanf(fptr,"%d",&player1.turn);
+    fscanf(fptr,"%d",&player1.moves);
     fscanf(fptr,"%s",player2.name);
     fscanf(fptr,"%d",&player2.score);
     fscanf(fptr,"%d",&player2.turn);
+    fscanf(fptr,"%d",&player2.moves);
     fscanf(fptr,"%d",&rounds);
     fscanf(fptr,"%d",&relines);
     fscanf(fptr,"%d",&numOfBoxes);
@@ -666,6 +670,8 @@ void loadData(FILE *fptr)
     }
     fscanf(fptr,"%d",&top);
     fscanf(fptr,"%d",&overtime);
+    startTime = time(NULL);
+    startTime -= overtime;
 }
 int loadGames(int g)
 {
