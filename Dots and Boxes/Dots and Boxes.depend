@@ -7,16 +7,17 @@
 	"processing.h"
 	"types.h"
 
-1576547569 e:\cse\1st term\programming\new folder (2)\dots-and-boxes\dots and boxes\displays.h
+1576624840 e:\cse\1st term\programming\new folder (2)\dots-and-boxes\dots and boxes\displays.h
 	<stdio.h>
 	<stdlib.h>
 	<stdbool.h>
+	<ctype.h>
 	<time.h>
 	<string.h>
 	"processing.h"
 	"types.h"
 
-1576545814 source:e:\cse\1st term\programming\new folder (2)\dots-and-boxes\dots and boxes\displays.c
+1576625577 source:e:\cse\1st term\programming\new folder (2)\dots-and-boxes\dots and boxes\displays.c
 	"displays.h"
 
 1576586316 source:c:\users\seifg\desktop\cmd\dots-and-boxes\dots and boxes\main.c
@@ -49,7 +50,7 @@
 1576587228 source:c:\users\seifg\desktop\cmd\dots-and-boxes\dots and boxes\processing.c
 	"processing.h"
 
-1576547875 source:e:\cse\1st term\programming\new folder (2)\dots-and-boxes\dots and boxes\processing.c
+1576624840 source:e:\cse\1st term\programming\new folder (2)\dots-and-boxes\dots and boxes\processing.c
 	"processing.h"
 
 1576547573 e:\cse\1st term\programming\new folder (2)\dots-and-boxes\dots and boxes\processing.h

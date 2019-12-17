@@ -514,10 +514,6 @@ void loadUi(){
                         printf("There's no game here to be loaded, enter any character to continue");
                         getchar();
                         loadUi();
-                    } else
-                    {
-                        loadGames(ch);
-                        GridMenu();
                     }
                     else if (found==1){
                         if (numOfPlayers==1){
@@ -529,7 +525,6 @@ void loadUi(){
                     }
                 }
                 else if (ch==4){
-                    unMakeChanges();
                     MainMenu();
                 }
                 else if (ch==0){
