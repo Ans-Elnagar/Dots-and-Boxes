@@ -221,10 +221,9 @@ void uicomp(){
     case 50:
         ///// undo operation /////
         if (rounds==1){
-            printf("                There's no moves left to undo.");
+            printf("                There's no moves left to undo.\n");
         }
         else{
-        unMakeChanges();
         unMakeChanges();
         uicomp();
         }
@@ -232,7 +231,6 @@ void uicomp(){
     case 60:
         ///// redo operation /////
         if (rounds < top){
-            redoChanges();
             redoChanges();
             uicomp();
         }
@@ -256,7 +254,6 @@ void uicomp(){
     case 90 :
         exit(EXIT_SUCCESS);
     default :
-    top = rounds+1;
     if (scanf("%d",&m2)!=1){
         fgets(garbage,100,stdin);
         invalidInput();
@@ -270,12 +267,14 @@ void uicomp(){
         if (x%2==0){
             if (grid[x][(y/2)+1]==1) invalidInput();
             else{
+            top = rounds+1;
             makeChanges(x,y);
             }
         }
         else {
             if (grid[x][y/2]==1) invalidInput();
             else{
+            top = rounds+1;
             makeChanges(x,y);
             }
         }
@@ -414,12 +413,14 @@ void uiplayer(){
         if (x%2==0){
             if (grid[x][(y/2)+1]==1) invalidInput();
             else{
+            top = rounds+1;
             makeChanges(x,y);
             }
         }
         else {
             if (grid[x][y/2]==1) invalidInput();
             else{
+            top = rounds+1;
             makeChanges(x,y);
             }
         }

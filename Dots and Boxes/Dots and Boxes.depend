@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1576531499 source:e:\cse\1st term\programming\new folder (2)\dots-and-boxes\dots and boxes\main.c
+1576547563 source:e:\cse\1st term\programming\new folder (2)\dots-and-boxes\dots and boxes\main.c
 	<stdio.h>
 	<stdlib.h>
 	<stdbool.h>
@@ -7,7 +7,7 @@
 	"processing.h"
 	"types.h"
 
-1576533368 e:\cse\1st term\programming\new folder (2)\dots-and-boxes\dots and boxes\displays.h
+1576547569 e:\cse\1st term\programming\new folder (2)\dots-and-boxes\dots and boxes\displays.h
 	<stdio.h>
 	<stdlib.h>
 	<stdbool.h>
@@ -16,7 +16,7 @@
 	"processing.h"
 	"types.h"
 
-1576534804 source:e:\cse\1st term\programming\new folder (2)\dots-and-boxes\dots and boxes\displays.c
+1576545814 source:e:\cse\1st term\programming\new folder (2)\dots-and-boxes\dots and boxes\displays.c
 	"displays.h"
 
 1576501306 source:c:\users\seifg\desktop\cmd\dots-and-boxes\dots and boxes\main.c
@@ -48,10 +48,10 @@
 1576501306 source:c:\users\seifg\desktop\cmd\dots-and-boxes\dots and boxes\processing.c
 	"processing.h"
 
-1576535521 source:e:\cse\1st term\programming\new folder (2)\dots-and-boxes\dots and boxes\processing.c
+1576547875 source:e:\cse\1st term\programming\new folder (2)\dots-and-boxes\dots and boxes\processing.c
 	"processing.h"
 
-1576533390 e:\cse\1st term\programming\new folder (2)\dots-and-boxes\dots and boxes\processing.h
+1576547573 e:\cse\1st term\programming\new folder (2)\dots-and-boxes\dots and boxes\processing.h
 	<stdio.h>
 	<stdlib.h>
 	<stdbool.h>

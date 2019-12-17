@@ -106,7 +106,7 @@ int save(int n){
         fprintf(game,"\n");
     }
     for (int i=0; i<60; i++){
-        for (int j=0; j<4; j++){
+        for (int j=0; j<8; j++){
             fprintf(game,"%d ",records[i][j]);
         }
         fprintf(game,"\n");
@@ -135,14 +135,31 @@ void unMakeChanges(){
     }
     if (records[rounds][2] == 1){
         player1.moves--;
+        player1.score -= records[rounds][3];
     }
     else {
         player2.moves--;
+        player2.score -= records[rounds][3];
     }
-    undoBoxes(i,j);
+    switch (records[rounds][3]){
+        case 1 :
+            boxesGrid [records[rounds][4]][records[rounds][5]] = 0;
+            swapTurns();
+            break;
+        case 2:
+            boxesGrid [records[rounds][4]][records[rounds][5]] = 0;
+            boxesGrid [records[rounds][6]][records[rounds][7]] = 0;
+            swapTurns();
+            break;
+        default:
+            break;
+    }
+    if ( rounds > 0 && records[rounds][2] == 2 && numOfPlayers == 1){
+        unMakeChanges();
+    }
 }
 void redoChanges(){
-    int i,j,turn;
+    /*int i,j,turn;
     i = records[rounds][0];
     j = records[rounds][1];
     turn = records[rounds][2];
@@ -167,9 +184,43 @@ void redoChanges(){
     else {
         player2.moves++;
     }
-    checkBoxes(i,j);
+    checkBoxes(i,j);*/
+    int i = records[rounds][0];
+    int j = records[rounds][1];
+    if (i%2 == 0){
+        grid[i][(j/2)+1] = true;
+        playerGrid[i][(j/2)+1] = records[rounds][2];
+    }
+    else {
+        grid[i][j/2] = true;
+        playerGrid[i][j/2] = records[rounds][2];
+    }
+    if (records[rounds][2] == 1){
+        player1.moves++;
+        player1.score += records[rounds][3];
+    }
+    else {
+        player2.moves++;
+        player2.score += records[rounds][3];
+    }
+    switch (records[rounds][3]){
+        case 1 :
+            boxesGrid [records[rounds][4]][records[rounds][5]] = records[rounds][2];
+            swapTurns();
+            break;
+        case 2:
+            boxesGrid[records[rounds][4]][records[rounds][5]] = records[rounds][2];
+            boxesGrid[records[rounds][6]][records[rounds][7]] = records[rounds][2];
+            swapTurns();
+            break;
+        default:
+            break;
+    }
     relines--;
     rounds++;
+    if ( rounds < top && (records[rounds-1][2] == 1 || (records[rounds-1][2] == 2 && rounds == top-1) || (records[rounds-1][2] == 2 && records[rounds][2] == 2) ) && numOfPlayers == 1){
+        redoChanges();
+    }
 }
 
 void computerMoves()
@@ -291,7 +342,7 @@ void scoreInc(int turn)
         player2.score++;
     }
 }
-void scoreDec(int turn)
+/*void scoreDec(int turn)
 {
     if (turn==player1.turn)
     {
@@ -300,7 +351,7 @@ void scoreDec(int turn)
     {
         player2.score--;
     }
-}
+}*/
 void swapTurns()
 {
     int temp =player1.turn;
@@ -326,7 +377,9 @@ void checkBoxes(int i,int j)
                 {
                     boxesGrid[0][j-1]=2;
                 }
-                records[rounds][3]++;
+                records[rounds][3] = 1;
+                records[rounds][4] = 0;
+                records[rounds][5] = j-1;
                 swapTurns();
             }
 
@@ -343,7 +396,9 @@ void checkBoxes(int i,int j)
                 {
                     boxesGrid[(i/2)-1][j-1]=2;
                 }
-                records[rounds][3]++;
+                records[rounds][3] = 1;
+                records[rounds][4] = (i/2)-1;
+                records[rounds][5] = j-1;
                 swapTurns();
             }
 
@@ -360,7 +415,10 @@ void checkBoxes(int i,int j)
                 {
                     boxesGrid[(i/2)][j-1]=2;
                 }
-                records[rounds][3]++;
+                swapTurns();
+                records[rounds][3] = 1;
+                records[rounds][4] = i/2;
+                records[rounds][5] = j-1;
             }
             //checking the box above
             if(grid[i-1][j]==1 && grid[i-1][j-1]==1 && grid[i-2][j]==1)
@@ -373,12 +431,20 @@ void checkBoxes(int i,int j)
                 {
                     boxesGrid[(i/2)-1][j-1]=2;
                 }
-                records[rounds][3]++;
+                swapTurns();
+                records[rounds][3] = 1;
+                records[rounds][4] = (i/2)-1;
+                records[rounds][5] = j-1;
             }
             //swapping turns of any of the two boxes were closed
-            if((grid[i+1][j]==1 && grid[i+1][j-1]==1 && grid[i+2][j]==1) ||(grid[i+1][j]==1 && grid[i+1][j-1]==1 && grid[i+2][j]==1))
+            if((grid[i+1][j]==1 && grid[i+1][j-1]==1 && grid[i+2][j]==1) &&(grid[i-1][j]==1 && grid[i-1][j-1]==1 && grid[i-2][j]==1))
             {
                 swapTurns();
+                records[rounds][3] = 2;
+                records[rounds][4] = i/2;
+                records[rounds][5] = j-1;
+                records[rounds][6] = (i/2)-1;
+                records[rounds][7] = j-1;
             }
         }
 
@@ -398,7 +464,9 @@ void checkBoxes(int i,int j)
                 {
                     boxesGrid[i/2][j]=2;
                 }
-                records[rounds][3]++;
+                records[rounds][3] = 1;
+                records[rounds][4] = i/2;
+                records[rounds][5] = j;
                 swapTurns();
             }
 
@@ -415,7 +483,9 @@ void checkBoxes(int i,int j)
                 {
                     boxesGrid[i/2][j-1]=2;
                 }
-                records[rounds][3]++;
+                records[rounds][3] = 1;
+                records[rounds][4] = i/2;
+                records[rounds][5] = j-1;
                 swapTurns();
             }
 
@@ -432,7 +502,10 @@ void checkBoxes(int i,int j)
                 {
                     boxesGrid[i/2][j]=2;
                 }
-                records[rounds][3]++;
+                swapTurns();
+                records[rounds][3] = 1;
+                records[rounds][4] = i/2;
+                records[rounds][5] = j;
             }
             //checking the box on the left
             if(grid[i+1][j]==1 && grid[i-1][j]==1 && grid[i][j-1]==1)
@@ -445,18 +518,26 @@ void checkBoxes(int i,int j)
                 {
                     boxesGrid[i/2][j-1]=2;
                 }
-                records[rounds][3]++;
+                swapTurns();
+                records[rounds][3] = 1;
+                records[rounds][4] = i/2;
+                records[rounds][5] = j-1;
             }
             //swapping turns if any of the two boxes was closed
-            if((grid[i+1][j+1] ==1 && grid[i-1][j+1]==1 && grid[i][j+1]==1) || (grid[i+1][j]==1 && grid[i-1][j]==1 && grid[i][j-1]==1) )
+            if((grid[i+1][j+1] ==1 && grid[i-1][j+1]==1 && grid[i][j+1]==1) && (grid[i+1][j]==1 && grid[i-1][j]==1 && grid[i][j-1]==1) )
             {
                 swapTurns();
+                records[rounds][3] = 2;
+                records[rounds][4] = i/2;
+                records[rounds][5] = j;
+                records[rounds][6] = i/2;
+                records[rounds][7] = j-1;
             }
 
         }
     }
 }
-void undoBoxes(int i,int j)
+/*void undoBoxes(int i,int j)
 {
     int turn = rounds%2;
     if (i%2==0)
@@ -543,7 +624,7 @@ void undoBoxes(int i,int j)
             boxesGrid[i/2][j-1]=0;
         }
     }
-}
+}*/
 void loadData(FILE *fptr)
 {
     int x,y;
@@ -578,7 +659,7 @@ void loadData(FILE *fptr)
     }
     for(x=0;x<60;x++)
     {
-        for(y=0;y<4;y++)
+        for(y=0;y<8;y++)
         {
             fscanf(fptr,"%d",&records[x][y]);
         }
