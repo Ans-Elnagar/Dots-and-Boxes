@@ -508,6 +508,10 @@ void loadUi(){
                         printf("There's no game here to be loaded, enter any character to continue");
                         getchar();
                         loadUi();
+                    } else
+                    {
+                        loadGames(ch);
+                        GridMenu();
                     }
                 }
                 else if (ch==4){
