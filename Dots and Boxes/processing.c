@@ -172,33 +172,11 @@ void redoChanges(){
     rounds++;
 }
 
-void initializingExpert()
-{
-    int i,j;
-    for(i=0;i<11;i++)
-    {
-        for(j=0;j<6;j++)
-        {
-            grid[i][j]=1;
-        }
-    }
-    //making exceptions
-    for(i=0;i<11;i++)
-    {
-        for(j=0;j<6;j++)
-            {
-                if(j==0 && i%2==0)
-                {
-                    grid[i][j]=0;
-                }
-            }
-    }
-}
 void computerMoves()
 {
     int h=0;
-    /*avInd[relines][2];*/
-    int i,j;
+    int i,j,a,b;
+    int l=1;
     for(i=0;i<gridSize;i++)
     {
         for(j=(i+1)%2;j<=numOfBoxes;j++)
@@ -208,13 +186,91 @@ void computerMoves()
                 avInd[h][0]=i;
                 avInd[h][1]=j;
                 h++;
+                if (i%2==0)
+                {
+                    if (i==0)
+                    {
+                        //checking the box under
+                        if(grid[1][j]==1 && grid[1][j-1]==1 && grid[2][j]==1)
+                        {
+                            a=i;
+                            b=j;
+                            l=0;
+                            break;
+                        }
+
+                    } else if (i==(gridSize-1))
+                    {
+                        //checking the box above
+                        if(grid[i-1][j]==1 && grid[i-1][j-1]==1 && grid[i-2][j]==1)
+                        {
+                            a=i;
+                            b=j;
+                            l=0;
+                            break;
+                        }
+
+                    } else
+                    {
+                        //checking the box under and the box above
+                        if((grid[i+1][j]==1 && grid[i+1][j-1]==1 && grid[i+2][j]==1) ||(grid[i-1][j]==1 && grid[i-1][j-1]==1 && grid[i-2][j]==1))
+                        {
+                            a=i;
+                            b=j;
+                            l=0;
+                            break;
+                        }
+                    }
+
+                } else
+                {
+                    if (j==0)
+                    {
+                        //checking the box on the right
+                        if(grid[i+1][j+1] ==1 && grid[i-1][j+1]==1 && grid[i][j+1]==1)
+                        {
+                            a=i;
+                            b=j;
+                            l=0;
+                            break;
+                        }
+
+                    } else if (j==numOfBoxes)
+                    {
+                        //checking the box on the left
+                        if(grid[i+1][j]==1 && grid[i-1][j]==1 && grid[i][j-1]==1)
+                        {
+                            a=i;
+                            b=j;
+                            l=0;
+                            break;
+                        }
+
+                    } else
+                    {
+                        //checking the box on the right and on the left
+                        if((grid[i+1][j+1] ==1 && grid[i-1][j+1]==1 && grid[i][j+1]==1) || (grid[i+1][j]==1 && grid[i-1][j]==1 && grid[i][j-1]==1) )
+                        {
+                            a=i;
+                            b=j;
+                            l=0;
+                            break;
+                        }
+
+                    }
+                }
             }
         }
+        if(l==0)
+            break;
     }
-    srand(time(NULL));
-    int r=rand()%relines;
-    int a=avInd[r][0];
-    int b=avInd[r][1];
+    if(l==1)
+    {
+        srand(time(NULL));
+        int r=rand()%relines;
+        a=avInd[r][0];
+        b=avInd[r][1];
+    }
     if(a%2==0)
     {
         b=(b-1)*2;
