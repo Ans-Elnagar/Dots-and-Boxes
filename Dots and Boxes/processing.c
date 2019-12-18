@@ -2,6 +2,7 @@
 void makeChanges(int i, int j){
     records[rounds][0] = i;
     records[rounds][1] = j;
+    records[rounds][3] = 0;
     if (i%2 == 0){
         grid[i][(j/2)+1] = true;
         if (rounds%2 == player1.turn){
