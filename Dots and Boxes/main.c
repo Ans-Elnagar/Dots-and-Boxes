@@ -10,7 +10,7 @@ int numOfBoxes; // number of boxes on the grid
 int relines=0,startTime=0,rounds=1;
 int overtime = 0;
 int top = 0; // the last index of redo array.
-int records[62][8];
+int records[62][20];
 bool grid[11][6];
 int playerGrid[11][6];
 int boxesGrid[5][5];

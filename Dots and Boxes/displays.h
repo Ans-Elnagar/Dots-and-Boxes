@@ -26,7 +26,7 @@ extern int gridSize;
 extern int numOfBoxes;
 extern int overtime;
 extern int top; // the last index of redo array.
-extern int records[62][8];
+extern int records[62][20];
 extern bool grid[11][6];
 extern int playerGrid[11][6];
 extern int boxesGrid[5][5];
