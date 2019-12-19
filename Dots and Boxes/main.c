@@ -19,6 +19,8 @@ char garbage[100];
 int avInd[60][2];
 char topNames[10][11];
 int topScores[10];
+char winner[10];
+int winnerScore;
 int main()
 {
     loadTop();

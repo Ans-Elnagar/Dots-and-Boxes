@@ -36,4 +36,6 @@ extern char garbage[100];
 extern int avInd[60][2];
 extern char topNames[10][11];
 extern int topScores[10];
+extern char winner[10];
+extern int winnerScore;
 #endif // DISPLAYS_H_INCLUDED

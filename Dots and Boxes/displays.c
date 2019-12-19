@@ -288,7 +288,9 @@ void uicomp(){
 }
     if (relines==0){
         if (player1.score>player2.score){
-            printf("                               %s wins !!\n",player1.name);
+            strcpy(winner,player1.name);
+            winnerScore=player1.score;
+            printf("                               %s wins !!\n",winner);
         }
         else if (player2.score>player1.score){
             printf("                               Computer Wins !! Hard Luck !");
@@ -432,16 +434,44 @@ void uiplayer(){
 
     }
 }
-if (relines==0){
+
+    if (relines==0){
         if (player1.score>player2.score){
-            printf("                               %s wins !!\n",player1.name);
+            strcpy(winner,player1.name);
+            winnerScore=player1.score;
+            printf("                               %s wins !!\n",winner);
         }
         else if (player2.score>player1.score){
-            printf("                               %s wins !!\n",player2.name);
+            strcpy(winner,player2.name);
+            winnerScore=player2.score;
+            printf("                               %s Wins !!",winner);
         }
         else if (player1.score==player2.score){
             printf("                               There's a tie,no one wins");
         }
+        printf("\nEnter (80) to back to the main menu (90) to exit : ");
+        int oo=0;
+        l :
+        oo=0;
+        scanf("%d",&oo);
+        switch (oo){
+        case 80:
+            clearGameData();
+            MainMenu();
+            break;
+        case 90 :
+            exit(EXIT_SUCCESS);
+        case 0 :
+        fgets(garbage,100,stdin);
+        invalidInput();
+        printf("\nenter again :");
+        goto l;
+        default :
+            invalidInput();
+            printf("\nenter again :");
+            goto l;
+        }
+
     }
 }
 /***************************************************

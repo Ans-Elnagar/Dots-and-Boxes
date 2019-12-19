@@ -34,4 +34,6 @@ extern int overtime;
 extern int avInd[60][2];
 extern char topNames[10][11];
 extern int topScores[10];
+extern char winner[10];
+extern int winnerScore;
 #endif // PROCESSING_H_INCLUDED
