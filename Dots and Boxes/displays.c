@@ -5,6 +5,7 @@
 **********************************************************************/
 void MainMenu(){
     system("cls");
+    loadTop();
     printf("\n\n\n""\033[1;31m"
            "            ##########################################################            \n"
            "            ##########################################################            \n"
@@ -343,11 +344,11 @@ void uiplayer(){
     printf("                TURN          REMAINING LINES          TIME   \n");
     if (rounds%2==player1.turn){
         blueL();
-        printf("              %-10s\033[0m           %d                 %2d:%2d  \n",player1.name,relines,mins,secs);
+        printf("              %-10s\033[0m           %d                 %02d:%02d  \n",player1.name,relines,mins,secs);
     }
-    else if (rounds%2==player2.turn){
+    if (rounds%2==player2.turn){
         redL();
-        printf("              %-10s\033[0m           %d                 %2d:%2d  \n",player2.name,relines,mins,secs);
+        printf("              %-10s\033[0m           %d                 %02d:%02d  \n",player2.name,relines,mins,secs);
     }
 
     printf("            \033[1;33m!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\033[0m\n");
@@ -550,6 +551,7 @@ void loadUi(){
                     found=loadGames(ch);
                     if (found==0){
                         printf("There's no game here to be loaded, enter any character to continue");
+                        getchar();
                         getchar();
                         loadUi();
                     }

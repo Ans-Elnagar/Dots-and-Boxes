@@ -23,7 +23,6 @@ char winner[10];
 int winnerScore;
 int main()
 {
-    loadTop();
     MainMenu();
     exit(EXIT_SUCCESS);
 }

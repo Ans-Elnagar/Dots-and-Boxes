@@ -926,7 +926,7 @@ void loadTop()
     top10=fopen("Top10.txt","r");
     for(int i=0;i<10;i++)
     {
-        fscanf(top10,"%s",&topNames[i]);
+        fscanf(top10,"%s",topNames[i]);
         fscanf(top10,"%d",&topScores[i]);
     }
 }
