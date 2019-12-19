@@ -929,6 +929,7 @@ void loadTop()
         fscanf(top10,"%s",topNames[i]);
         fscanf(top10,"%d",&topScores[i]);
     }
+    fclose(top10);
 }
 void updateTop()
 {
@@ -972,6 +973,7 @@ void saveTop()
         fprintf(top10,"%s\n",topNames[i]);
         fprintf(top10,"%d\n",topScores[i]);
     }
+    fclose(top10);
 }
 
 
