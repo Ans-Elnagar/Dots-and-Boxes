@@ -21,6 +21,7 @@ void loadData(FILE *fptr);
 int loadGames(int g);
 void clearGameData();
 void loadTop();
+void saveTop();
 extern int numOfPlayers;
 extern int gridSize;
 extern int overtime;

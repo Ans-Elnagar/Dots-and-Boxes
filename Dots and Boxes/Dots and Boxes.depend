@@ -217,3 +217,38 @@
 1576591478 source:c:\users\samab\desktop\new folder\dots-and-boxes\dots and boxes\processing.c
 	"processing.h"
 
+1576749138 source:c:\users\samab\desktop\new folder (3)\dots-and-boxes\dots and boxes\displays.c
+	"displays.h"
+
+1576746542 c:\users\samab\desktop\new folder (3)\dots-and-boxes\dots and boxes\displays.h
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	<ctype.h>
+	<time.h>
+	<string.h>
+	"processing.h"
+	"types.h"
+
+1576747577 c:\users\samab\desktop\new folder (3)\dots-and-boxes\dots and boxes\processing.h
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	<time.h>
+	<string.h>
+	"displays.h"
+	"types.h"
+
+1576745958 c:\users\samab\desktop\new folder (3)\dots-and-boxes\dots and boxes\types.h
+
+1576745958 source:c:\users\samab\desktop\new folder (3)\dots-and-boxes\dots and boxes\main.c
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	"displays.h"
+	"processing.h"
+	"types.h"
+
+1576748924 source:c:\users\samab\desktop\new folder (3)\dots-and-boxes\dots and boxes\processing.c
+	"processing.h"
+

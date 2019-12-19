@@ -42,8 +42,8 @@ void MainMenu(){
                 loadUi();
 
             case 4:
-                ///////////////
-                ///////////////
+                system("cls");
+                topUi();
                 break;
             case 5:
                 exit(EXIT_SUCCESS);
@@ -291,6 +291,8 @@ void uicomp(){
             strcpy(winner,player1.name);
             winnerScore=player1.score;
             printf("                               %s wins !!\n",winner);
+            updateTop();
+            saveTop();
         }
         else if (player2.score>player1.score){
             printf("                               Computer Wins !! Hard Luck !");
@@ -298,6 +300,7 @@ void uicomp(){
         else if (player1.score==player2.score){
             printf("                               There's a tie,no one wins");
         }
+        gameTopUi();
         printf("\nEnter (80) to back to the main menu (90) to exit : ");
         int oo=0;
         l :
@@ -440,15 +443,20 @@ void uiplayer(){
             strcpy(winner,player1.name);
             winnerScore=player1.score;
             printf("                               %s wins !!\n",winner);
+            updateTop();
+            saveTop();
         }
         else if (player2.score>player1.score){
             strcpy(winner,player2.name);
             winnerScore=player2.score;
             printf("                               %s Wins !!",winner);
+            updateTop();
+            saveTop();
         }
         else if (player1.score==player2.score){
             printf("                               There's a tie,no one wins");
         }
+        gameTopUi();
         printf("\nEnter (80) to back to the main menu (90) to exit : ");
         int oo=0;
         l :
@@ -568,6 +576,51 @@ void loadUi(){
                     printf("enter your choice again : ");
                     goto invalidl;
                 }
+}
+void topUi()
+{
+    printf("\n\n\n""\033[1;31m"
+           "            ##########################################################            \n"
+           "            ##########################################################            \n"
+           "            ##                                                      ##            \n"
+           "            ##                \033[1;33m""Dots     and     Boxes                \033[1;31m##            \n"
+           "            ##                                                      ##            \n"
+           "            ##########################################################            \n"
+           "            ##########################################################            \n"
+           "\n\n""\033[1;33m"
+            );
+            redL();
+            printf("                                Top 10 Players:\n");
+            reset();
+           for(int i=0;i<10;i++)
+           {
+               printf("                                %d. %s     %d\n",(i+1),topNames[i],topScores[i]);
+           }
+           printf("                                \033[1;31m1. Back.\n\033[0m\n\n");
+           int choice = 0;
+           for (;;){
+                printf("                                        ");
+                scanf("%d",&choice);
+                switch(choice){
+                    case 1:
+                        MainMenu();
+                        break;
+                    case 0:
+                        fgets(garbage,100,stdin);
+                    default:
+                        invalidInput();
+               }
+           }
+}
+void gameTopUi()
+{
+    redL();
+    printf("                                Top 10 Players:\n");
+    reset();
+    for(int i=0;i<10;i++)
+    {
+        printf("                                %d. %s     %d\n",(i+1),topNames[i],topScores[i]);
+    }
 }
 //function to save game
 void savegu(){

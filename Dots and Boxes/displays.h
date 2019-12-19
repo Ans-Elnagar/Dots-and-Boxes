@@ -20,6 +20,7 @@ void dotShape();
 void emptyB();
 void eHline();     void Hline();
 void eVline();     void Vline();
+void topUi();
 extern int numOfPlayers;
 extern int gridSize;
 extern int numOfBoxes;

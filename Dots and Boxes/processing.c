@@ -768,8 +768,51 @@ void loadTop()
     top10=fopen("Top10.txt","r");
     for(int i=0;i<10;i++)
     {
-        fscanf(top10,"%s",topNames[i]);
+        fscanf(top10,"%s",&topNames[i]);
         fscanf(top10,"%d",&topScores[i]);
+    }
+}
+void updateTop()
+{
+    int i;
+    int l=1;
+    for(i=0;i<10;i++)
+    {
+        if(strcmp(winner,topNames[i])==0)
+        {
+            if(winnerScore>topScores[i])
+            {
+                topScores[i]=winnerScore;
+                l=0;
+            }
+        }
+    }
+    if (l==1)
+    {
+        for(i=0;i<10;i++)
+        {
+            if(winnerScore>=topScores[i])
+            {
+                for (int j=9;j>i;j--)
+                {
+                    strcpy(topNames[j],topNames[j-1]);
+                    topScores[j]=topScores[j-1];
+                }
+                strcpy(topNames[i],winner);
+                topScores[i]=winnerScore;
+                break;
+            }
+        }
+    }
+}
+void saveTop()
+{
+    FILE *top10;
+    top10=fopen("Top10.txt","w");
+    for(int i=0;i<10;i++)
+    {
+        fprintf(top10,"%s\n",topNames[i]);
+        fprintf(top10,"%d\n",topScores[i]);
     }
 }
 
