@@ -290,15 +290,15 @@ void uicomp(){
         if (player1.score>player2.score){
             strcpy(winner,player1.name);
             winnerScore=player1.score;
-            printf("                               %s wins !!\n",winner);
+            printf("                               %s Wins !!\n",winner);
             updateTop();
             saveTop();
         }
         else if (player2.score>player1.score){
-            printf("                               Computer Wins !! Hard Luck !");
+            printf("                               Computer Wins !! Hard Luck !\n");
         }
         else if (player1.score==player2.score){
-            printf("                               There's a tie,no one wins");
+            printf("                               There's a tie,no one wins\n");
         }
         gameTopUi();
         printf("\nEnter (80) to back to the main menu (90) to exit : ");
@@ -442,19 +442,19 @@ void uiplayer(){
         if (player1.score>player2.score){
             strcpy(winner,player1.name);
             winnerScore=player1.score;
-            printf("                               %s wins !!\n",winner);
+            printf("                               %s Wins !!\n",winner);
             updateTop();
             saveTop();
         }
         else if (player2.score>player1.score){
             strcpy(winner,player2.name);
             winnerScore=player2.score;
-            printf("                               %s Wins !!",winner);
+            printf("                               %s Wins !!\n",winner);
             updateTop();
             saveTop();
         }
         else if (player1.score==player2.score){
-            printf("                               There's a tie,no one wins");
+            printf("                               There's a tie,no one wins\n");
         }
         gameTopUi();
         printf("\nEnter (80) to back to the main menu (90) to exit : ");
