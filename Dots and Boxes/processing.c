@@ -941,9 +941,16 @@ void updateTop()
         {
             if(winnerScore>topScores[i])
             {
+                while ( i>0 && winnerScore>=topScores[i-1] ){
+                    strcpy(topNames[i],topNames[i-1]);
+                    topScores[i]=topScores[i-1];
+                    i--;
+                }
+                strcpy(topNames[i],winner);
                 topScores[i]=winnerScore;
             }
             l=0;
+            break;
         }
     }
     if (l==1)

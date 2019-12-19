@@ -1,10 +1,10 @@
+ANS
+4
 WORLD
 4
 HI
 3
 HELLO
-3
-ANS
 3
 empty
 0

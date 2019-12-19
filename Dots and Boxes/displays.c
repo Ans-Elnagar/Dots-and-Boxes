@@ -31,12 +31,14 @@ void MainMenu(){
                 gridSize = 5;
                 relines=12;
                 numOfBoxes = 2;
+                overtime = 0;
                 ModeMenu();
                 break;
             case 2:
                 gridSize = 11;
                 relines=60;
                 numOfBoxes = 5;
+                overtime = 0;
                 ModeMenu();
                 break;
             case 3:
