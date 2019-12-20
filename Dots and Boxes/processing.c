@@ -1,4 +1,9 @@
 #include "processing.h"
+/*****************************************************************************************************************
+* makeChanges : takes the coordinates of the lines chosen by the user, saves it in the records                 ***
+* which can be used later while undoing and redoing, changes in grid and playerGrid arrays                     ***
+* ,calls checkBoxes function to check if there are any closed boxes, increases the rounds players' moves       ***
+*****************************************************************************************************************/
 void makeChanges(int i, int j){
     records[rounds][0] = i;
     records[rounds][1] = j;
@@ -38,7 +43,11 @@ void makeChanges(int i, int j){
         uiplayer();
     }
 }
-
+/********************************************************************************************
+* save : takes the chosen no. of the save slot to save the game as argument from the user ***
+* ,checks if there's a game saved in the slot, if so, it asks the user if they want to    ***
+* overwrite it,if so, it overwrite the previous saved game and saves the new game         ***
+********************************************************************************************/
 int save(int n){
     FILE *game;
     switch (n){
@@ -121,8 +130,11 @@ int save(int n){
     fclose(game);
     return 1;
 }
-
-
+/************************************************************************************
+* unMakeChanges : it's used to undo the changes made by "makeChanges" function    ***
+* it decreases the rounds by 1 and increases the remaining lines by 1, takes the  ***
+* changes made and saved in the records and undo it                               ***
+************************************************************************************/
 void unMakeChanges(){
     rounds--;
     relines++;
@@ -238,7 +250,11 @@ void redoChanges(){
         redoChanges();
     }
 }
-
+/*****************************************************************************************
+* computerMoves : it's used only in the "One Player Mode" and it checks if there's any ***
+* moves that increases the score of the computer, and if not, it chooses a random line ***
+* and then it sends the coordinates of the line to "makeChanges" function              ***
+*****************************************************************************************/
 void computerMoves()
 {
     int h=0;
@@ -348,6 +364,9 @@ void computerMoves()
     makeChanges(a,b);
     // Check for closed box //
 }
+/******************************************************************************
+* scoreInc : checks which turn is it, and increases their score when needed ***
+******************************************************************************/
 void scoreInc(int turn)
 {
     if (turn==player1.turn)
@@ -358,12 +377,20 @@ void scoreInc(int turn)
         player2.score++;
     }
 }
+/*************************************************************************
+* swapTurns : only used to change the turns of the players when needed ***
+*************************************************************************/
 void swapTurns()
 {
     int temp =player1.turn;
     player1.turn=player2.turn;
     player2.turn=temp;
 }
+/*******************************************************************************************************************
+* checkBoxes : takes the coordinates of the lines played by the user as arguments, checks if it closes any boxes ***
+* if so, it checks who closed it, increases their score, changes in the grid boxes, saves the change in the      ***
+* records to be used later while undoing and redoing                                                             ***
+*******************************************************************************************************************/
 void checkBoxes(int i,int j)
 {
     int turn = rounds%2;
@@ -666,6 +693,10 @@ void checkBoxes(int i,int j)
         }
     }
 }
+/***************************************************************************************************************
+* loadData : represents the way to read the game file, takes the file name as an argument and loads its data ***
+* and it's used it loadGames function                                                                        ***
+***************************************************************************************************************/
 void loadData(FILE *fptr)
 {
     int x,y;
@@ -712,6 +743,9 @@ void loadData(FILE *fptr)
     startTime = time(NULL);
     startTime -= overtime;
 }
+/**************************************************************************************************
+* loadGames : takes the game no. to be loaded and loads all game data from savedGames txt files ***
+**************************************************************************************************/
 int loadGames(int g)
 {
     FILE *fptr;
@@ -760,6 +794,9 @@ int loadGames(int g)
     }
     return 0;
 }
+/*************************************************************************
+* clearGameData : clears all the records after every game has finished ***
+*************************************************************************/
 void clearGameData()
 {
     int i,j;
@@ -800,6 +837,9 @@ void clearGameData()
     }
     top=0;
 }
+/**************************************************************
+* loadTop : loads top 10 names and scores from Top.txt file ***
+**************************************************************/
 void loadTop()
 {
     FILE *top10;
@@ -811,6 +851,9 @@ void loadTop()
     }
     fclose(top10);
 }
+/******************************************************************************************
+* updateTop : takes the winner and score as input and changes the top 10 list if needed ***
+******************************************************************************************/
 void updateTop()
 {
     int i;
@@ -851,6 +894,9 @@ void updateTop()
         }
     }
 }
+/********************************************************************
+* saveTop : saves the top 10 after every update in Top10.txt file ***
+********************************************************************/
 void saveTop()
 {
     FILE *top10;
