@@ -162,29 +162,33 @@ void unMakeChanges(){
     }
     for(int x=rounds-1;x>0;x--)
     {
-        if(records[x][3]!=0)
-        {
-            break;
-        }
-        if (records[x][0]%2 == 0){
+    if (records[x][0]%2 == 0){
         grid[records[x][0]][(records[x][1]/2)+1] = true;
-        if (x%2 == player1.turn){
-            records[x][2] = 1;
-            playerGrid[records[x][0]][(records[x][1]/2)+1] = 1;
-        } else {
-            records[x][2] = 2;
-            playerGrid[records[x][0]][(records[x][1]/2)+1] = 2;
-        }
+        playerGrid[records[x][0]][(records[x][1]/2)+1] = records[x][2];
     } else {
         grid[records[x][0]][records[x][1]/2] = true;
-        if (x%2 == player1.turn){
-            records[x][2] = 1;
-            playerGrid[records[x][0]][records[x][1]/2] = 1;
-        } else {
-            records[x][2] = 2;
-            playerGrid[records[x][0]][records[x][1]/2] = 2;
+        playerGrid[records[x][0]][records[x][1]/2] = records[x][2];
         }
-        }
+    }
+    for(int x=rounds-1;x>0;x--)
+    {
+        switch (records[x][3]){
+        case 1 :
+            playerGrid[records[x][8]][records[x][9]]= records[x][2];
+            playerGrid[records[x][10]][records[x][11]]= records[x][2];
+            playerGrid[records[x][12]][records[x][13]]= records[x][2];
+            break;
+        case 2:
+            playerGrid[records[x][8]][records[x][9]]= records[x][2];
+            playerGrid[records[x][10]][records[x][11]]= records[x][2];
+            playerGrid[records[x][12]][records[x][13]]= records[x][2];
+            playerGrid[records[x][14]][records[x][15]]= records[x][2];
+            playerGrid[records[x][16]][records[x][17]]= records[x][2];
+            playerGrid[records[x][18]][records[x][19]]= records[x][2];
+            break;
+        default:
+            break;
+    }
     }
 }
 void redoChanges(){
