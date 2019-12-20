@@ -53,7 +53,9 @@ void MainMenu(){
             case 0:
                 fgets(garbage,100,stdin);
             default:
-                invalidInput();
+                fgets(garbage,100,stdin);
+                        invalidInput();
+                        printf("enter again : ");
         }
     }
 }
@@ -101,11 +103,15 @@ void ModeMenu(){
                     case 0:
                         fgets(garbage,100,stdin);
                     default:
+                        fgets(garbage,100,stdin);
                         invalidInput();
+                        printf("enter again : ");
+
                }
            }
 
 }
+/// prints the grid with colored lines and boxes
 void GridMenu(){
     if (numOfBoxes == 2){
         printf("                                  ");
@@ -361,7 +367,7 @@ void uiplayer(){
            GridMenu();
            //here the grid
            //////////////
-    printf("            press (50) undo ,(60) redo ,(70) save game ,(80) back to main menu ,(90) exit\n\n");
+    printf("            press (50) undo ,(60) redo ,(70) save game (80) back to main menu ,(90) exit\n\n");
     while (relines != 0){
     m1=0;m2=0;
     int x=0,y=0;
@@ -527,6 +533,7 @@ void plnamepl(){
     removespaces(player2.name);
 
 }
+/// the user interface when the user wanted to load a game
 void loadUi(){
     system("cls");
     printf("\n\n\n""\033[1;31m"
@@ -581,6 +588,7 @@ void loadUi(){
                     goto invalidl;
                 }
 }
+/// to display the top 10 players when the user chooses it from main menu
 void topUi()
 {
     printf("\n\n\n""\033[1;31m"
@@ -616,6 +624,7 @@ void topUi()
                }
            }
 }
+///display top 10 players after the end of the game
 void gameTopUi()
 {
     redL();
@@ -650,6 +659,7 @@ void savegu(){
             savegu();
         }
 }
+/// a function to take the name from the user and converting all the characters to upper case
 void readname(char str[], int n) {
     int ch, i=0,no=0;
     while((ch=getchar()) != '\n'){
@@ -663,6 +673,7 @@ void readname(char str[], int n) {
         str[i]=toupper(str[i]);
     }
     }
+/// a function to remove the spaces from the string entered
 void removespaces(char str[]){
     int len,i,j;
     len=strlen(str);
