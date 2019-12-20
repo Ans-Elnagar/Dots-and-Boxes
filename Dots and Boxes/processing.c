@@ -192,32 +192,6 @@ void unMakeChanges(){
     }
 }
 void redoChanges(){
-    /*int i,j,turn;
-    i = records[rounds][0];
-    j = records[rounds][1];
-    turn = records[rounds][2];
-    if (i%2 == 0){
-        grid[i][(j/2)+1] = true;
-        if (turn == 1){
-            playerGrid[i][(j/2)+1] = 1;
-        } else {
-            playerGrid[i][(j/2)+1] = 2;
-        }
-    } else {
-        grid[i][j/2] = true;
-        if (turn == 1){
-            playerGrid[i][j/2] = 1;
-        } else {
-            playerGrid[i][j/2] = 2;
-        }
-    }
-    if (turn == 1){
-        player1.moves++;
-    }
-    else {
-        player2.moves++;
-    }
-    checkBoxes(i,j);*/
     int i = records[rounds][0];
     int j = records[rounds][1];
     if (i%2 == 0){
@@ -384,16 +358,6 @@ void scoreInc(int turn)
         player2.score++;
     }
 }
-/*void scoreDec(int turn)
-{
-    if (turn==player1.turn)
-    {
-        player1.score--;
-    } else if (turn==player2.turn)
-    {
-        player2.score--;
-    }
-}*/
 void swapTurns()
 {
     int temp =player1.turn;
@@ -702,94 +666,6 @@ void checkBoxes(int i,int j)
         }
     }
 }
-/*void undoBoxes(int i,int j)
-{
-    int turn = rounds%2;
-    if (i%2==0)
-    {
-        j=(j/2)+1;
-        if (i==0)
-        {
-            //checking the box under
-            if (boxesGrid[0][j-1]!=0)
-            {
-                swapTurns();
-                scoreDec(turn);
-            }
-            boxesGrid[0][j-1]=0;
-        } else if (i==(gridSize-1))
-        {
-            //checking the box above
-            if (boxesGrid[(i/2)-1][j-1]!=0)
-            {
-                swapTurns();
-                scoreDec(turn);
-            }
-            boxesGrid[(i/2)-1][j-1]=0;
-        } else
-        {
-            //swapping turns of any of the two boxes were closed
-            if(boxesGrid[(i/2)][j-1]!=0 ||boxesGrid[(i/2)-1][j-1]!=0)
-            {
-                swapTurns();
-            }
-            //checking the box under
-            if (boxesGrid[(i/2)][j-1]!=0)
-            {
-                scoreDec(turn);
-            }
-            //checking the box above
-            if (boxesGrid[(i/2)-1][j-1]!=0)
-            {
-                scoreDec(turn);
-            }
-            boxesGrid[(i/2)][j-1]=0;
-            boxesGrid[(i/2)-1][j-1]=0;
-        }
-
-    } else
-    {
-        j=j/2;
-        if (j==0)
-        {
-            //checking the box on the right
-            if(boxesGrid[i/2][j]!=0)
-            {
-                swapTurns();
-                scoreDec(turn);
-            }
-            boxesGrid[i/2][j]=0;
-        } else if (j==numOfBoxes)
-        {
-            //checking the box on the left
-            if(boxesGrid[i/2][j-1]!=0)
-            {
-                swapTurns();
-                scoreDec(turn);
-            }
-            boxesGrid[i/2][j-1]=0;
-        } else
-        {
-            //swapping turns if any of the two boxes was closed
-            if((boxesGrid[i/2][j]!=0) || (boxesGrid[i/2][j-1]!=0) )
-            {
-                swapTurns();
-            }
-            //checking the box on the right
-            if(boxesGrid[i/2][j]!=0)
-            {
-                scoreDec(turn);
-            }
-            //checking the box on the left
-            if(boxesGrid[i/2][j-1]!=0)
-            {
-                scoreDec(turn);
-            }
-            boxesGrid[i/2][j]=0;
-            boxesGrid[i/2][j-1]=0;
-        }
-    }
-}*/
 void loadData(FILE *fptr)
 {
     int x,y;

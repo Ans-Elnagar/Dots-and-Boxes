@@ -4,14 +4,14 @@ ANS
 4
 WORLD
 4
+MOHAMED
+3
 SEIF
 3
 HI
 3
 HELLO
 3
-empty
-0
 empty
 0
 empty
