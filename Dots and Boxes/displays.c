@@ -216,7 +216,7 @@ void uicomp(){
            GridMenu();
            //here the grid
            ///////////////////
-    printf("            press (50) undo ,(60) redo ,(70) save game ,(80) back to main menu ,(90) exit\n\n");
+    printf("                   press (50) undo (60) redo (70) save game \n                       (80) back to main menu (90) exit\n\n");
     while (relines != 0){
     printf("        enter your play(Row Col for the line) : ");
     m1=0;m2=0;
@@ -367,7 +367,7 @@ void uiplayer(){
            GridMenu();
            //here the grid
            //////////////
-    printf("            press (50) undo ,(60) redo ,(70) save game (80) back to main menu ,(90) exit\n\n");
+    printf("                   press (50) undo (60) redo (70) save game \n                       (80) back to main menu (90) exit\n\n");
     while (relines != 0){
     m1=0;m2=0;
     int x=0,y=0;

@@ -203,6 +203,10 @@ void unMakeChanges(){
     }
     }
 }
+/***********************************************************************************************
+* redoChanges : it's used to redo the changes that were removed by unMakeChanges function    ***
+* it increases the rounds by 1 and decreases the remaining lines by 1, by using the records  ***
+***********************************************************************************************/
 void redoChanges(){
     int i = records[rounds][0];
     int j = records[rounds][1];
@@ -794,9 +798,9 @@ int loadGames(int g)
     }
     return 0;
 }
-/*************************************************************************
-* clearGameData : clears all the records after every game has finished ***
-*************************************************************************/
+/********************************************************************
+* clearGameData : clears all data after choosing main menu option ***
+********************************************************************/
 void clearGameData()
 {
     int i,j;
