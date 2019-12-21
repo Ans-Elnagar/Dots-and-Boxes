@@ -51,11 +51,10 @@ void MainMenu(){
             case 5:
                 exit(EXIT_SUCCESS);
             case 0:
-                fgets(garbage,100,stdin);
             default:
                 fgets(garbage,100,stdin);
                         invalidInput();
-                        printf("enter again : ");
+                        printf("                                   enter again : \n");
         }
     }
 }
@@ -87,25 +86,21 @@ void ModeMenu(){
                         plnameco();
                         startTime=time(NULL)-overtime;
                         uicomp();
-                        /////////
                         break;
                     case 2:
                         numOfPlayers = 2;
                         plnamepl();
                         startTime=time(NULL)-overtime;
                         uiplayer();
-                        ////////
-                        ////////
                         break;
                     case 3:
                         MainMenu();
                         break;
                     case 0:
-                        fgets(garbage,100,stdin);
                     default:
                         fgets(garbage,100,stdin);
                         invalidInput();
-                        printf("enter again : ");
+                        printf("                                   enter again : \n");
 
                }
            }
@@ -289,8 +284,6 @@ void uicomp(){
         }
 
     }
-
-      ////////////////
       break;
 
     }
@@ -491,7 +484,7 @@ void uiplayer(){
 
     }
 }
-/***************************************************
+/****************************************************
 * plnameco : getting player name in computer mode ***
 ****************************************************/
 void plnameco(){
@@ -533,7 +526,7 @@ void plnamepl(){
     removespaces(player2.name);
 
 }
-/// the user interface when the user wanted to load a game
+/// the user interface when the user wants to load a game
 void loadUi(){
     system("cls");
     printf("\n\n\n""\033[1;31m"
@@ -635,7 +628,11 @@ void gameTopUi()
         printf("                                %d. %s     %d\n",(i+1),topNames[i],topScores[i]);
     }
 }
-//function to save game
+/*****************************************************
+*when the user chooses to save a game this function  *
+* takes the game number from the user and validate it*
+* then send the number to save() function            *
+*****************************************************/
 void savegu(){
     int ch=0,found;
         scanf("%d",&ch);
