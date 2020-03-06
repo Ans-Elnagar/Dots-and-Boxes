@@ -201,18 +201,16 @@ void uicomp(){
     }
     //display in screen
     printf("                TURN          REMAINING LINES          TIME   \n"
-      "             \033[1;34m %-10s\033[0m             %d               %2d:%2d  \n",player1.name,relines,mins,secs);
+      "               \033[1;34m %-10s\033[0m           %02d               %2d:%02d  \n",player1.name,relines,mins,secs);
     printf("            \033[1;33m!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\033[0m\n");
     printf("              \033[1;34m%-10s\033[0m                         \033[1;31mComputer\033[0m     \n"
            "              \033[1;34mMoves : %d \033[0m                         \033[1;31mMoves : %d \033[0m     \n"
            "              \033[1;34mScore : %d \033[0m                         \033[1;31mScore : %d \033[0m     \n",player1.name,player1.moves,player2.moves,player1.score,player2.score);
            printf("            \033[1;33m!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\033[0m\n");
            GridMenu();
-           //here the grid
-           ///////////////////
-    printf("            press (50) undo ,(60) redo ,(70) save game ,(80) back to main menu ,(90) exit\n\n");
+    printf("                press (50) undo ,(60) redo ,(70) save game,\n                (80) back to main menu ,(90) exit\n\n");
     while (relines != 0){
-    printf("        enter your play(Row Col for the line) : ");
+    printf("                enter your play(Row Col for the line) : ");
     m1=0;m2=0;
     int x=0,y=0;
     scanf("%d",&m1);
@@ -346,11 +344,11 @@ void uiplayer(){
     printf("                TURN          REMAINING LINES          TIME   \n");
     if (rounds%2==player1.turn){
         blueL();
-        printf("              %-10s\033[0m           %d                 %02d:%02d  \n",player1.name,relines,mins,secs);
+        printf("                %-10s\033[0m          %d                 %d:%02d  \n",player1.name,relines,mins,secs);
     }
     if (rounds%2==player2.turn){
         redL();
-        printf("              %-10s\033[0m           %d                 %02d:%02d  \n",player2.name,relines,mins,secs);
+        printf("                %-10s\033[0m          %d                 %d:%02d  \n",player2.name,relines,mins,secs);
     }
 
     printf("            \033[1;33m!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\033[0m\n");
@@ -361,11 +359,11 @@ void uiplayer(){
            GridMenu();
            //here the grid
            //////////////
-    printf("            press (50) undo ,(60) redo ,(70) save game ,(80) back to main menu ,(90) exit\n\n");
+    printf("                press (50) undo ,(60) redo ,(70) save game,\n                (80) back to main menu ,(90) exit\n\n");
     while (relines != 0){
     m1=0;m2=0;
     int x=0,y=0;
-    printf("        enter your play(Row Col for the line) : ");
+    printf("                enter your play(Row Col for the line) : ");
     scanf("%d",&m1);
     switch (m1){
     case 0 :
@@ -373,7 +371,7 @@ void uiplayer(){
         invalidInput();
         break ;
     case 50:if (rounds==1){
-            printf("                There's no moves left to undo.");
+            printf("                There's no moves left to undo.\n");
         }
         else{
         unMakeChanges();
@@ -383,7 +381,7 @@ void uiplayer(){
         break;
     case 60:
         if (rounds==top){
-            printf("                There's no moves to redo.");
+            printf("                There's no moves to redo.\n");
         }
         else {
             redoChanges();
